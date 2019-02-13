@@ -49,6 +49,12 @@ public class Seartch_Page extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this,LinearLayoutManager.VERTICAL));
+        //Get the bundle
+        Bundle bundle = getIntent().getExtras();
+
+        //Extract the data…
+//        String stuff = bundle.getString("stuff");
+
 
 
         fnameList =new ArrayList<>();

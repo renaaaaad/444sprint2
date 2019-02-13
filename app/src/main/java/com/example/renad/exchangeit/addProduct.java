@@ -66,12 +66,14 @@ public class addProduct extends AppCompatActivity {
     private Uri selectedimage;
     String user_id;
     String path;
+    SystemProduct systemProduct;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
-
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
@@ -151,14 +153,29 @@ public class addProduct extends AppCompatActivity {
 
                             // to stor the dproduct to the user and the alon (table)
 
+
+                            String proID=path.substring(8);
+                            systemProduct=new SystemProduct(p_name,p_des,p_cat,path,user_id,proID );
+
+
+                            DatabaseReference ref = database.getInstance().getReference("Products");
+                            ref.child(p_name+user_id).setValue(systemProduct);
+
+
+
+
                             firebaseDatabase.child("Products").child(p_name).setValue(product).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()){
                                         startActivity( new Intent(getApplicationContext(),MainActivity_profilePage.class));
-                                    }
+                                }
                                 }
                             });
+
+
+
+
 
 
 

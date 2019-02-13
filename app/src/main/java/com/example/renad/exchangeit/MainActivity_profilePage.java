@@ -1,7 +1,9 @@
 package com.example.renad.exchangeit;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -41,6 +43,15 @@ public class MainActivity_profilePage extends AppCompatActivity {
      MyFotoAdapter myFotoAdapter;
      List<Product> productList;
 
+     /////Nora
+     ImageView image_profile;
+
+     FirebaseUser firebaseUser;
+
+     String profileid;
+
+     ////
+
     private myPHotoAdapter myPHotoAdapter ;
     private List<Product> list_product ;
 
@@ -59,6 +70,12 @@ public class MainActivity_profilePage extends AppCompatActivity {
 city2 =        (TextView)findViewById(R.id.city);
 
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+        SharedPreferences perfs=getApplicationContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE);
+        profileid=perfs.getString("profileid","none");
+
+        image_profile=findViewById(R.id.imageProfile);
+
+
         String userid=user.getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
         reference.child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -252,4 +269,7 @@ cancel.setOnClickListener(new View.OnClickListener() {
             }
         });
     }
+
+
+
 }

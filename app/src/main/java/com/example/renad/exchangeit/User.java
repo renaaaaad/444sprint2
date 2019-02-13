@@ -8,48 +8,48 @@ public class User {
     private String city;
 
     private String email;
+    private String imageurl;
+
 public User(){
 
 }
-public User(String i  ,String f,String l,String p, String e ,String c){
-    id = i;
-    Fname=f;
-    Lname=l;
-    phoneNumber=p;
-    email=e;
-    city=c;
 
-}
-  public String getPhoneNumber() {
-        return phoneNumber;
+    public User(String id, String fname, String lname, String phoneNumber, String city, String email, String imageurl) {
+        this.id = id;
+        Fname = fname;
+        Lname = lname;
+        this.phoneNumber = phoneNumber;
+        this.city = city;
+        this.email = email;
+        this.imageurl = imageurl;
     }
 
+    public String getId() {
+        return id;
+    }
 
-
-    public String getEmail() {
-        return email;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFname() {
         return Fname;
     }
 
-
+    public void setFname(String fname) {
+        Fname = fname;
+    }
 
     public String getLname() {
         return Lname;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setFname(String fname) {
-        Fname = fname;
-    }
-
     public void setLname(String lname) {
         Lname = lname;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -64,8 +64,21 @@ public User(String i  ,String f,String l,String p, String e ,String c){
         this.city = city;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 }// the class
+
 
