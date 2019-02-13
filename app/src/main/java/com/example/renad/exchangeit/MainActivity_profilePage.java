@@ -19,6 +19,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.renad.exchangeit.Adapter.MyFotoAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -39,6 +40,7 @@ public class MainActivity_profilePage extends AppCompatActivity {
     private String user_id;
     private String user_name;
     Button cancel ;
+
      RecyclerView recyclerView ;
      MyFotoAdapter myFotoAdapter;
      List<Product> productList;
@@ -83,6 +85,8 @@ city2 =        (TextView)findViewById(R.id.city);
                                                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                                        name_text.setText(dataSnapshot.child("fname").getValue().toString());
                                                                        city2.setText(dataSnapshot.child("city").getValue().toString());
+                                                                       String url_photo = dataSnapshot.child("image").getValue().toString();
+                                                                       Glide.with(getApplicationContext()).load(url_photo).into(image_profile);
 
                                                                    }
 
@@ -148,8 +152,7 @@ cancel.setOnClickListener(new View.OnClickListener() {
 
 
     }
-
-    BottomNavigationView.OnNavigationItemSelectedListener  mOnNavigationItemSelectedListener
+ BottomNavigationView.OnNavigationItemSelectedListener  mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
