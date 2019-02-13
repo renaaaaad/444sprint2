@@ -6,28 +6,51 @@ public class User {
     private String Lname;
     private String phoneNumber;
     private String city;
+    private String type ;
+    private String image ;
 
     private String email;
-public User(){
+    public User(){
 
-}
-public User(String i  ,String f,String l,String p, String e ,String c){
-    id = i;
-    Fname=f;
-    Lname=l;
-    phoneNumber=p;
-    email=e;
-    city=c;
+    }
+    public User(String i  ,String f,String l,String p, String e ,String c , String t ,String im){
+        id = i;
+        Fname=f;
+        Lname=l;
+        phoneNumber=p;
+        email=e;
+        city=c;
+        type =t;
+        image=  im ;
 
-}
-  public String getPhoneNumber() {
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
+    public String getType() {
+        return type;
+    }
 
+    public String getId() {
+        return id;
+    }
 
     public String getEmail() {
         return email;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getFname() {

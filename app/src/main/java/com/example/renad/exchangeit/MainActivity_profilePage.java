@@ -198,35 +198,7 @@ cancel.setOnClickListener(new View.OnClickListener() {
         startActivity(intent2);
     }
 
-//    public void myProducts (String id ){
-//
-//
-//        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("Users");
-//        reference2.child(id).child("Products").addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if(dataSnapshot!=null){
-//list_product.clear();
-//                    for(DataSnapshot ds :dataSnapshot.getChildren()) {
-//                        Product product = new Product();
-//                        product = dataSnapshot.getValue(Product.class);
-//                        list_product.add(product);
-//
-//                    }//for
-//                    Collections.reverse(list_product);
-//                    myPHotoAdapter.notifyDataSetChanged();
-//                }//if
-//                else return;
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//
-//
-//    }
+
 
     private void myFotos(String id){
 

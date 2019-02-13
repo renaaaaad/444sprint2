@@ -159,14 +159,6 @@ public class addProduct extends AppCompatActivity {
                                     }
                                 }
                             });
-
-
-
-
-
-
-
-
                         }
                     });
 
