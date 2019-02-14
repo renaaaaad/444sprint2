@@ -1,7 +1,9 @@
 package com.example.renad.exchangeit.Adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.renad.exchangeit.MainActivity_profilePage;
 import com.example.renad.exchangeit.Product;
 import com.example.renad.exchangeit.R;
+import com.example.renad.exchangeit.SystemProduct;
 import com.example.renad.exchangeit.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,6 +31,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     public Context mContext;
     public List<Product> mProduct;
+    public List<SystemProduct> mSProduct;
+
 
 
     private FirebaseUser firebaseUser;
@@ -49,7 +55,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        Product product=mProduct.get(i);
+        final Product product=mProduct.get(i);
+        final SystemProduct systemProduct=mSProduct.get(i);
 
         Glide.with(mContext).load(product.getPath()).into(viewHolder.post_image);
 
@@ -69,6 +76,21 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         publisherInfo(viewHolder.username);
 
 //        viewHolder //6:39
+
+        viewHolder.post_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                SharedPreferences.Editor editor=mContext.getSharedPreferences("PREFS",Context.MODE_PRIVATE).edit();
+                editor.putString("profileid",systemProduct.getUseID());
+                editor.apply();
+
+//                (mContext).getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new MainActivity_profilePage()).commit();
+
+            }
+        });
+
+
 
     }
 

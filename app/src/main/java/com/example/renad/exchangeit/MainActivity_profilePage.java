@@ -1,7 +1,9 @@
 package com.example.renad.exchangeit;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -17,6 +19,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.renad.exchangeit.Adapter.MyFotoAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,9 +40,19 @@ public class MainActivity_profilePage extends AppCompatActivity {
     private String user_id;
     private String user_name;
     Button cancel ;
+
      RecyclerView recyclerView ;
      MyFotoAdapter myFotoAdapter;
      List<Product> productList;
+
+     /////Nora
+     ImageView image_profile;
+
+     FirebaseUser firebaseUser;
+
+     String profileid;
+
+     ////
 
     private myPHotoAdapter myPHotoAdapter ;
     private List<Product> list_product ;
@@ -59,6 +72,12 @@ public class MainActivity_profilePage extends AppCompatActivity {
 city2 =        (TextView)findViewById(R.id.city);
 
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+        SharedPreferences perfs=getApplicationContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE);
+        profileid=perfs.getString("profileid","none");
+
+        image_profile=findViewById(R.id.imageProfile);
+
+
         String userid=user.getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
         reference.child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -66,6 +85,8 @@ city2 =        (TextView)findViewById(R.id.city);
                                                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                                        name_text.setText(dataSnapshot.child("fname").getValue().toString());
                                                                        city2.setText(dataSnapshot.child("city").getValue().toString());
+                                                                       String url_photo = dataSnapshot.child("image").getValue().toString();
+                                                                       Glide.with(getApplicationContext()).load(url_photo).into(image_profile);
 
                                                                    }
 
@@ -131,8 +152,7 @@ cancel.setOnClickListener(new View.OnClickListener() {
 
 
     }
-
-    BottomNavigationView.OnNavigationItemSelectedListener  mOnNavigationItemSelectedListener
+ BottomNavigationView.OnNavigationItemSelectedListener  mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -198,35 +218,7 @@ cancel.setOnClickListener(new View.OnClickListener() {
         startActivity(intent2);
     }
 
-//    public void myProducts (String id ){
-//
-//
-//        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("Users");
-//        reference2.child(id).child("Products").addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if(dataSnapshot!=null){
-//list_product.clear();
-//                    for(DataSnapshot ds :dataSnapshot.getChildren()) {
-//                        Product product = new Product();
-//                        product = dataSnapshot.getValue(Product.class);
-//                        list_product.add(product);
-//
-//                    }//for
-//                    Collections.reverse(list_product);
-//                    myPHotoAdapter.notifyDataSetChanged();
-//                }//if
-//                else return;
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//
-//
-//    }
+
 
     private void myFotos(String id){
 
@@ -252,4 +244,7 @@ cancel.setOnClickListener(new View.OnClickListener() {
             }
         });
     }
+
+
+
 }
