@@ -30,8 +30,9 @@ public class Seartch_Page extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference databaseReference;
     FirebaseUser firebaseUser;
-    ArrayList<String> fnameList;
-    ArrayList<String> lnameList;
+    //ArrayList<String> fnameList;
+    ArrayList<String> productnameList;
+    ArrayList<String> productImgList;
      searchAdapter searchAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +52,9 @@ public class Seartch_Page extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this,LinearLayoutManager.VERTICAL));
 
 
-        fnameList =new ArrayList<>();
-        lnameList =new ArrayList<>();
-
+        //fnameList =new ArrayList<>();
+            productnameList=new ArrayList<>();
+            productImgList=new ArrayList<>();
         search_edit_text.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
@@ -74,8 +75,8 @@ public class Seartch_Page extends AppCompatActivity {
                 }else{
                     //if is it empty
                     //clear list every time
-                    fnameList.clear();
-                    lnameList.clear();
+                    productImgList.clear();
+                    productnameList.clear();
                     recyclerView.removeAllViews();
                 }
             }
@@ -85,12 +86,12 @@ public class Seartch_Page extends AppCompatActivity {
     private void setAdapter(final String searchedString) {
 
 
-        databaseReference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child("Products").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //clear list every time
-                fnameList.clear();
-                lnameList.clear();
+                productnameList.clear();
+                productImgList.clear();
                 recyclerView.removeAllViews();
                 //limit search ex 15 results
                 int counter=0;
@@ -98,16 +99,19 @@ public class Seartch_Page extends AppCompatActivity {
                 //To take each value from database using for loop
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                     String userId=snapshot.getKey();
-                    String fname= snapshot.child("fname").getValue(String.class);
-                    String lname =snapshot.child("lname").getValue(String.class);
+                    //String fname= snapshot.child("fname").getValue(String.class);
+                    String productName =snapshot.child("name").getValue(String.class);
+                    String produtImg =snapshot.child("path").getValue(String.class);
 
-                    if(fname.toLowerCase().contains(searchedString.toLowerCase())){
-                        fnameList.add(fname);
-                        lnameList.add(lname);
 
-                    }else if(lname.toLowerCase().contains(searchedString.toLowerCase())){
-                        fnameList.add(fname);
-                        lnameList.add(lname);
+
+                    if(productName.toLowerCase().contains(searchedString.toLowerCase())){
+                        productnameList.add(productName);
+                        productImgList.add(produtImg);
+
+                    //}else if(lname.toLowerCase().contains(searchedString.toLowerCase())){
+                        //fnameList.add(fname);
+                        //lnameList.add(lname);
                         counter++;
 
                     }
@@ -115,7 +119,7 @@ public class Seartch_Page extends AppCompatActivity {
                     if(counter==15){
                         break;
                     }
-                    searchAdapter= new searchAdapter(Seartch_Page.this,fnameList,lnameList);
+                   searchAdapter= new searchAdapter(Seartch_Page.this,productnameList,productImgList);
                     recyclerView.setAdapter(searchAdapter);
                 }
             }
