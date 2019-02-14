@@ -34,6 +34,7 @@ public class Seartch_Page extends AppCompatActivity {
     ArrayList<String> productnameList;
     ArrayList<String> productImgList;
     searchAdapter searchAdapter;
+     searchAdapter searchAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +62,8 @@ public class Seartch_Page extends AppCompatActivity {
         //fnameList =new ArrayList<>();
         productnameList=new ArrayList<>();
         productImgList=new ArrayList<>();
+            productnameList=new ArrayList<>();
+            productImgList=new ArrayList<>();
         search_edit_text.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
@@ -116,6 +119,7 @@ public class Seartch_Page extends AppCompatActivity {
                         productImgList.add(produtImg);
 
                         //}else if(lname.toLowerCase().contains(searchedString.toLowerCase())){
+                    //}else if(lname.toLowerCase().contains(searchedString.toLowerCase())){
                         //fnameList.add(fname);
                         //lnameList.add(lname);
                         counter++;
@@ -126,6 +130,7 @@ public class Seartch_Page extends AppCompatActivity {
                         break;
                     }
                     searchAdapter= new searchAdapter(Seartch_Page.this,productnameList,productImgList);
+                   searchAdapter= new searchAdapter(Seartch_Page.this,productnameList,productImgList);
                     recyclerView.setAdapter(searchAdapter);
                 }
             }

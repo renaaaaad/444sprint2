@@ -56,6 +56,11 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.SearchView
         Glide.with(context).load(productImgList.get(position)).into(holder.path);
         //Glide.with(context).load().placeholder(R.mipmap.ic_launcher_round).into(holder.path);
         //.asBitmap().placeholder(R.mipmap.ic_launcher_round).into(holder.path);
+       // holder.fname.setText(fnameList.get(position));
+       // final String url="http://akhbarsat.com/wp-content/uploads/2017/03/%D8%A7%D8%AB%D8%A7%D8%AB-%D8%B4%D9%82%D9%82-2016-3.jpg";
+          Glide.with(context).load(productImgList.get(position)).into(holder.path);
+        //Glide.with(context).load().placeholder(R.mipmap.ic_launcher_round).into(holder.path);
+               //.asBitmap().placeholder(R.mipmap.ic_launcher_round).into(holder.path);
     }
 
 
