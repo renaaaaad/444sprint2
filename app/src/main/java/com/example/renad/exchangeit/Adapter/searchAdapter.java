@@ -1,6 +1,7 @@
 package com.example.renad.exchangeit;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,30 +11,33 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class searchAdapter extends RecyclerView.Adapter<searchAdapter.SearchViewHolder> {
 
     Context context;
-    ArrayList<String> fnameList;
-    ArrayList<String> lnameList;
+    ArrayList<String> productnameList;
+    ArrayList<String> productImgList;
 
     class SearchViewHolder extends RecyclerView.ViewHolder
     {
-        TextView fname,lname;
+        TextView name;
+        ImageView path;
 
         public SearchViewHolder(View itemView) {
             super(itemView);
-            fname=(TextView)itemView.findViewById(R.id.fname);
-            lname=(TextView) itemView.findViewById(R.id.lname);
+            path=(ImageView) itemView.findViewById(R.id.product_image);
+            name=(TextView) itemView.findViewById(R.id.product_name);
         }
     }
 
 
-    public searchAdapter(Context context, ArrayList<String> fnameList, ArrayList<String> lnameList) {
+    public searchAdapter(Context context, ArrayList<String> productnameList, ArrayList<String> productImgList) {
         this.context = context;
-        this.fnameList = fnameList;
-        this.lnameList = lnameList;
+        this.productnameList =productnameList;
+        this.productImgList = productImgList;
     }
 
     @NonNull
@@ -46,15 +50,17 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.SearchView
 
     @Override
     public void onBindViewHolder(@NonNull SearchViewHolder holder, int position) {
-        holder.lname.setText(lnameList.get(position));
-        holder.fname.setText(fnameList.get(position));
-
-
+        holder.name.setText(productnameList.get(position));
+        // holder.fname.setText(fnameList.get(position));
+        // final String url="http://akhbarsat.com/wp-content/uploads/2017/03/%D8%A7%D8%AB%D8%A7%D8%AB-%D8%B4%D9%82%D9%82-2016-3.jpg";
+        Glide.with(context).load(productImgList.get(position)).into(holder.path);
+        //Glide.with(context).load().placeholder(R.mipmap.ic_launcher_round).into(holder.path);
+        //.asBitmap().placeholder(R.mipmap.ic_launcher_round).into(holder.path);
     }
 
 
     @Override
     public int getItemCount() {
-        return fnameList.size();
+        return productnameList.size();
     }
 }

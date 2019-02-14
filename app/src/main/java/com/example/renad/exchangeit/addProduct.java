@@ -155,7 +155,7 @@ public class addProduct extends AppCompatActivity {
 
 
                             String proID=path.substring(8);
-                            systemProduct=new SystemProduct(p_name,p_des,p_cat,path,user_id,proID );
+                            systemProduct=new SystemProduct(p_name,p_des,p_cat,path,user_id,p_name+user_id );
 
 
                             DatabaseReference ref = database.getInstance().getReference("Products");

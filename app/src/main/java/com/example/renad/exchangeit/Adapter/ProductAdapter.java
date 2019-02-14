@@ -17,6 +17,8 @@ import com.example.renad.exchangeit.Product;
 import com.example.renad.exchangeit.R;
 import com.example.renad.exchangeit.SystemProduct;
 import com.example.renad.exchangeit.User;
+import com.example.renad.exchangeit.fragment.ProductDetailsFragment;
+import com.example.renad.exchangeit.fragment_seartch;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -82,10 +84,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             public void onClick(View view) {
 
                 SharedPreferences.Editor editor=mContext.getSharedPreferences("PREFS",Context.MODE_PRIVATE).edit();
-                editor.putString("profileid",systemProduct.getUseID());
+                editor.putString("productID ",systemProduct.getProductID());
                 editor.apply();
 
-//                (mContext).getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new MainActivity_profilePage()).commit();
+                ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new ProductDetailsFragment()).commit();
 
             }
         });
