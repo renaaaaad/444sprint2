@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.renad.exchangeit.Adapter.MyFotoAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -42,6 +43,7 @@ public class fragment_seartch extends Fragment {
     private String user_id;
     private String user_name;
     Button cancel ;
+
     RecyclerView recyclerView ;
     MyFotoAdapter myFotoAdapter;
     List<Product> productList;
@@ -65,13 +67,13 @@ public class fragment_seartch extends Fragment {
     private DatabaseReference databaseReference;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
         View view=inflater.inflate(R.layout.fragment_fragment_seartch, container, false);
+
         name_text = (TextView)view.findViewById(R.id.name);
         city2 =        (TextView)view.findViewById(R.id.city);
 
@@ -89,6 +91,8 @@ public class fragment_seartch extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 name_text.setText(dataSnapshot.child("fname").getValue().toString());
                 city2.setText(dataSnapshot.child("city").getValue().toString());
+                String url_photo = dataSnapshot.child("imageurl").getValue().toString();
+                Glide.with(getContext()).load(url_photo).into(image_profile);
 
             }
 
@@ -97,6 +101,10 @@ public class fragment_seartch extends Fragment {
 
             }
         });
+
+
+        //show product
+
         recyclerView=(RecyclerView)view.findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager1= new GridLayoutManager(getContext(),3);
@@ -107,13 +115,23 @@ public class fragment_seartch extends Fragment {
 
         myFotos(userid);
 
+//        myProducts(userid);
 
 
 
+
+
+        navigation = (BottomNavigationView) view.findViewById(R.id.bottomNavigationView);
+        cancel  = (Button)view.findViewById(R.id.button6);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getContext(),loginPage.class));
+            }
+        });
         return view;
-
-    }
-
+    }//oncreat
 
     private void showdata(DataSnapshot dataSnapshot) {
 
@@ -166,6 +184,8 @@ public class fragment_seartch extends Fragment {
             }
         });
     }
+
+
 
 
 

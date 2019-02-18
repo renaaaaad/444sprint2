@@ -157,7 +157,7 @@ cancel.setOnClickListener(new View.OnClickListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            fragment_profile fragment = new fragment_profile();
+            fragment_profile fragment = new fragment_profile();//search page
             fragment_seartch fragment_seartch = new fragment_seartch();
             fragment_sitting_option fragment_sitting = new fragment_sitting_option();
             fragment_request fragment_request = new fragment_request();
@@ -204,7 +204,14 @@ cancel.setOnClickListener(new View.OnClickListener() {
         transaction.commit();
     }
 
+
+
     private void loadFragment(fragment_profile fragment) {
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
 
     }
 

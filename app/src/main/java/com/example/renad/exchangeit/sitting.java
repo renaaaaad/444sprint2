@@ -66,7 +66,7 @@ imageView_user = (ImageView)findViewById(R.id.imageView2) ;
                 location.setText(dataSnapshot.child("city").getValue().toString());
                 lname.setText(dataSnapshot.child("lname").getValue().toString());
                 phone.setText(dataSnapshot.child("phoneNumber").getValue().toString());
-                String url_photo = dataSnapshot.child("image").getValue().toString();
+                String url_photo = dataSnapshot.child("imageurl").getValue().toString();
                 Glide.with(getApplicationContext()).load(url_photo).into(imageView_user);
             }
 

@@ -6,7 +6,7 @@
     android:id="@+id/big"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_seartch">
+    tools:context=".MainActivity_profilePage">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -150,23 +150,7 @@
 
     </ScrollView>
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="413dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="8dp"
-        app:itemBackground="@color/Snow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
 
-        app:itemIconTint="@color/White"
-        app:itemTextColor="@color/White"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/bottonnovigation" >
-
-    </android.support.design.widget.BottomNavigationView>
 
 
 </android.support.constraint.ConstraintLayout>
