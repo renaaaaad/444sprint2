@@ -51,7 +51,7 @@ public User(){
         return id;
     }
 
-    
+
 
     public void setType(String type) {
         this.type = type;
