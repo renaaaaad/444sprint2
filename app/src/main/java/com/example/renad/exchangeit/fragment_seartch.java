@@ -45,6 +45,7 @@ public class fragment_seartch extends Fragment {
     Button cancel ;
 
     RecyclerView recyclerView ;
+    private final int NUM_RE_COLUMNS = 3;
     MyFotoAdapter myFotoAdapter;
     List<Product> productList;
 
@@ -106,6 +107,9 @@ public class fragment_seartch extends Fragment {
         //show product
 
         recyclerView=(RecyclerView)view.findViewById(R.id.recycle);
+//        int recyclewidth=getResources().getDisplayMetrics().widthPixels;
+//        int imagewidth=recyclewidth/NUM_RE_COLUMNS;
+//        recyclerView.setMinimumWidth(imagewidth);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager1= new GridLayoutManager(getContext(),3);
         recyclerView.setLayoutManager(linearLayoutManager1);
