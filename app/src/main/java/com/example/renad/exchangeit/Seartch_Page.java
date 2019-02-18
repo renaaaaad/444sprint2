@@ -34,7 +34,7 @@ public class Seartch_Page extends AppCompatActivity {
     ArrayList<String> productnameList;
     ArrayList<String> productImgList;
     searchAdapter searchAdapter;
-     searchAdapter searchAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
