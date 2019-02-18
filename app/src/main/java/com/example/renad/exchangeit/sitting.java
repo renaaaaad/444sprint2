@@ -51,7 +51,7 @@ public class sitting extends AppCompatActivity {
 imageView_user = (ImageView)findViewById(R.id.imageView2) ;
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-
+// please work 
         if (firebaseUser != null) {
             firebaseDatabase = FirebaseDatabase.getInstance().getReference().child("Users")
                     .child(firebaseUser.getUid());
