@@ -40,7 +40,7 @@ private EditText email2 ;
                                startActivity(new Intent(getApplicationContext(),loginPage.class));
                            }
                            else {
-                               email2.setError("Error With This Password  ");
+                               email2.setError("Error With This Email  ");
                                email2.requestFocus();
                            }
                        }

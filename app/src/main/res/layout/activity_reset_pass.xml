@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    android:background="@drawable/pic"
+    tools:context=".resetPass">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/forgetPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="236dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="100dp"
+            android:clickable="true"
+            android:text="Please Enter Your Email , To Send Reset The Password"
+            android:textAlignment="center"
+            android:textColor="@color/Black"
+            android:textColorLink="@color/Honeydew"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:textColorLink="@color/Black" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="-80dp"
+            android:background="@drawable/border2"
+            android:ellipsize="start"
+            android:gravity="center_vertical"
+            android:hint="E-mail"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textColor="@color/Black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.67" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="173dp"
+            android:layout_marginTop="70dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="121dp"
+                android:layout_height="72dp"
+                android:layout_marginBottom="52dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/bottun_design"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="8sp"
+                android:text="SEND"
+                android:textColor="@color/GhostWhite"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/button5"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="121dp"
+                android:layout_height="72dp"
+                android:layout_marginBottom="52dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/bottun_design"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="8sp"
+                android:text="Cancel"
+                android:textColor="@color/GhostWhite"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -16,7 +16,7 @@ public User(){
 
 }
 
-    public User(String id, String fname, String lname, String phoneNumber, String city, String email, String imageurl) {
+    public User(String id, String fname, String lname, String phoneNumber, String city, String email, String imageurl , String t) {
         this.id = id;
         Fname = fname;
         Lname = lname;
@@ -24,6 +24,7 @@ public User(){
         this.city = city;
         this.email = email;
         this.imageurl = imageurl;
+        type =t;
     }
 
 

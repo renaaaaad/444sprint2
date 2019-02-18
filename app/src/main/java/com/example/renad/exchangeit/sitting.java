@@ -9,7 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.example.renad.exchangeit.MainActivity_profilePage;
+import com.example.renad.exchangeit.R;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +35,7 @@ public class sitting extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private StorageReference mStorageRef;
+    ImageView imageView_user ;
     String user_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +48,7 @@ public class sitting extends AppCompatActivity {
         lname = (EditText) findViewById(R.id.Lname);
         location = (EditText) findViewById(R.id.location);
         phone = (EditText) findViewById(R.id.phoneNumber);
-
+imageView_user = (ImageView)findViewById(R.id.imageView2) ;
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
@@ -61,6 +66,8 @@ public class sitting extends AppCompatActivity {
                 location.setText(dataSnapshot.child("city").getValue().toString());
                 lname.setText(dataSnapshot.child("lname").getValue().toString());
                 phone.setText(dataSnapshot.child("phoneNumber").getValue().toString());
+                String url_photo = dataSnapshot.child("image").getValue().toString();
+                Glide.with(getApplicationContext()).load(url_photo).into(imageView_user);
             }
 
             @Override

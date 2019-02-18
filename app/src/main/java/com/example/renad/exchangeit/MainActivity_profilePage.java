@@ -85,7 +85,7 @@ city2 =        (TextView)findViewById(R.id.city);
                                                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                                        name_text.setText(dataSnapshot.child("fname").getValue().toString());
                                                                        city2.setText(dataSnapshot.child("city").getValue().toString());
-                                                                       String url_photo = dataSnapshot.child("image").getValue().toString();
+                                                                       String url_photo = dataSnapshot.child("imageurl").getValue().toString();
                                                                        Glide.with(getApplicationContext()).load(url_photo).into(image_profile);
 
                                                                    }
@@ -205,10 +205,7 @@ cancel.setOnClickListener(new View.OnClickListener() {
     }
 
     private void loadFragment(fragment_profile fragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_container, fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+
     }
 
 

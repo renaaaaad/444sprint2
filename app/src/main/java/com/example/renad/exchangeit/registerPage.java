@@ -200,7 +200,7 @@ public class registerPage extends AppCompatActivity implements View.OnClickListe
 // grnrate
                     String uid = mAuth.getCurrentUser().getUid();
                     String id = user_data.push().getKey();
-                    user=new User(id,firstName.getText().toString(),lastName.getText().toString(),phone.getText().toString(),Email.getText().toString(),city,"https://firebasestorage.googleapis.com/v0/b/exchangeit-3940a.appspot.com/o/images%2FUsers%2F3.jpg?alt=media&token=e4ae2c99-ecfc-4b72-bf9c-9f2e5b97f0fa");
+                    user=new User(id,firstName.getText().toString(),lastName.getText().toString(),phone.getText().toString(), city, Email.getText().toString(),"https://firebasestorage.googleapis.com/v0/b/exchangeit-3940a.appspot.com/o/images%2FUsers%2Fprofile%2Fprofile.png?alt=media&token=ae8792ac-afe9-409b-8eaa-bd69c23ccb08" , "User");
                     user_data.child(uid).setValue(user);
 
 // to move the user to the log in oage

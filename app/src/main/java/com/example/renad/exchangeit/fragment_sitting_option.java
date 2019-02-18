@@ -25,10 +25,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class fragment_sitting_option extends Fragment {
-private Button button_edit ;
+private Button button_edit , forgotbass ;
     private FragmentManager supportFragmentManager;
     private FirebaseAuth firebaseAuth;
-    private Button button_logout ;
+
 private  Button button_resetPass;
     public fragment_sitting_option() {
         // Required empty public constructor
@@ -40,7 +40,6 @@ private  Button button_resetPass;
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_fragment_sitting_option, container, false);
         Button button = (Button) view.findViewById(R.id.editButton);
-        button_logout =(Button)view.findViewById(R.id.logout_button) ;
         button.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -49,18 +48,13 @@ private  Button button_resetPass;
               startActivity(new Intent(getContext(),sitting.class));
             }
         });
-button_logout.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        firebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getContext(),loginPage.class));
-    }
-});
+
 
 button_resetPass =(Button)view.findViewById(R.id.rest_password);
 button_resetPass.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+        startActivity(new Intent(getContext(),forgetPasseord.class));
 
     }
 });
