@@ -147,9 +147,8 @@ public class addProduct extends AppCompatActivity {
                     }).addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-
                             path = uri.toString();
-                            Product product= new Product(p_name,p_des,p_cat,path);
+                            Product product= new Product(p_name,p_des,p_cat,path," " );
 
                             // to stor the dproduct to the user and the alon (table)
 
@@ -160,7 +159,7 @@ public class addProduct extends AppCompatActivity {
 
                             DatabaseReference ref = database.getInstance().getReference("Products");
                             ref.child(p_name+user_id).setValue(systemProduct);
-
+                           product.setId(ref.push().getKey());
 
 
 

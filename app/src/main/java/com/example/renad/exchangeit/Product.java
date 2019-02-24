@@ -4,7 +4,7 @@ public class Product {
 
 
 
-    private String name , discription , category  ,path ;
+    private String name , discription , category  ,path ,id ;
 
 
 
@@ -12,15 +12,23 @@ public class Product {
 
     }
 
-    public Product( String n ,String d ,String c  ,String p){
+    public Product( String n ,String d ,String c  ,String p , String i ){
         name = n;
         discription = d;
         category = c;
         path = p;
+        id = i ;
 
     }
 
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

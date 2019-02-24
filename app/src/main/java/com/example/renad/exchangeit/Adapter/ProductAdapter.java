@@ -114,8 +114,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             super(itemView);
 
             post_image=itemView.findViewById(R.id.post_image);
-            username=itemView.findViewById(R.id.username);
-            description=itemView.findViewById(R.id.description);
+          //  username=itemView.findViewById(R.id.username);
+           // description=itemView.findViewById(R.id.description);
 
         }
     }
