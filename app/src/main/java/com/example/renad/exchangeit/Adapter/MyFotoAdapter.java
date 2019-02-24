@@ -8,11 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+//import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.renad.exchangeit.Product;
 import com.example.renad.exchangeit.R;
+import com.example.renad.exchangeit.SquareimageView;
 import com.example.renad.exchangeit.SystemProduct;
 import com.example.renad.exchangeit.fragment.ProductDetailsFragment;
 
@@ -73,7 +74,7 @@ public class MyFotoAdapter extends RecyclerView.Adapter<MyFotoAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public ImageView post_image;
+        public SquareimageView post_image;
 
 
         public ViewHolder(View itemView) {
