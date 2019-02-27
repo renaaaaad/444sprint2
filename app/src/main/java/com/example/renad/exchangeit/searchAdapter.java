@@ -1,6 +1,7 @@
 package com.example.renad.exchangeit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -49,8 +50,10 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.SearchView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SearchViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SearchViewHolder holder, final int position) {
         holder.name.setText(productnameList.get(position));
+
+
         // holder.fname.setText(fnameList.get(position));
         // final String url="http://akhbarsat.com/wp-content/uploads/2017/03/%D8%A7%D8%AB%D8%A7%D8%AB-%D8%B4%D9%82%D9%82-2016-3.jpg";
         Glide.with(context).load(productImgList.get(position)).into(holder.path);
@@ -61,11 +64,35 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.SearchView
           Glide.with(context).load(productImgList.get(position)).into(holder.path);
         //Glide.with(context).load().placeholder(R.mipmap.ic_launcher_round).into(holder.path);
                //.asBitmap().placeholder(R.mipmap.ic_launcher_round).into(holder.path);
-    }
+        holder.path.setClickable(true);
+        holder.path.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                move(productImgList.get(position));
+            }
+
+
+        });
+        holder.name.setClickable(true);
+        holder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                move(productImgList.get(position));
+            }
+
+
+        });
+}
 
 
     @Override
     public int getItemCount() {
         return productnameList.size();
+    }
+    private void move(String p) {
+        Intent intent = new Intent(context,search_item_product.class);
+        intent.putExtra("path",p);
+        context.startActivity(intent);
+
     }
 }

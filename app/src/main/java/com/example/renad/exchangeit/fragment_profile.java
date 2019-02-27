@@ -7,22 +7,35 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.SearchView;
+import android.widget.TextView;
+
+import com.example.renad.exchangeit.Adapter.MySearchAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 public class fragment_profile extends Fragment {
 
-
-    public ImageButton Kitchnbtn;
-    public ImageButton bedroombtn;
-    public ImageButton livingroombtn;
-
-
-
+    TextView searchView;
+    RecyclerView recyclerView;
+    MySearchAdapter mySearchAdapter;
+    List<Product> productList;
     public fragment_profile() {
         // Required empty public constructor
     }
@@ -33,95 +46,52 @@ public class fragment_profile extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_fragment_profile, container, false);
-
-        Kitchnbtn = (ImageButton)view.findViewById(R.id.kitchen);
-        bedroombtn = (ImageButton)view.findViewById(R.id.bedroom);
-        livingroombtn = (ImageButton)view.findViewById(R.id.livingroom);
-
-
-        Kitchnbtn.setOnClickListener(new View.OnClickListener() {
+        searchView=(TextView)view.findViewById(R.id.searchForProduct);
+        searchView.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getContext(),Seartch_Page.class);
+            public void onClick(View v)
+            {
+                startActivity(new Intent(getContext(),Seartch_Page.class));
+            }
+        });
+        recyclerView=(RecyclerView)view.findViewById(R.id.recycle_product);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager1= new GridLayoutManager(getContext(),3);
+        recyclerView.setLayoutManager(linearLayoutManager1);
+        productList=new ArrayList<>();
+        mySearchAdapter =new MySearchAdapter(getContext(),productList);
+        recyclerView.setAdapter(mySearchAdapter);
 
-//Create the bundle
-                Bundle bundle = new Bundle();
+        myFotos();
+return view;
 
-//Add your data to bundle
-                bundle.putString("kitchen","Kitchen");
 
-//Add the bundle to the intent
-                i.putExtras(bundle);
+    }
+    private void myFotos() {
 
-//Fire that second activity
-                startActivity(i);
+        DatabaseReference reference3 = FirebaseDatabase.getInstance().getReference("Products");
+        reference3.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                productList.clear();
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Product product = snapshot.getValue(Product.class);
+                    ///user id does not equals userid
+                    productList.add(product);
+
+                }
+
+                Collections.reverse(productList);
+                mySearchAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
+    }
 
-
-        Kitchnbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(fragment_profile.this.getActivity(), Seartch_Page.class));
-            }
-        });
-
-        bedroombtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getContext(),Seartch_Page.class);
-
-//Create the bundle
-                Bundle bundle = new Bundle();
-
-//Add your data to bundle
-                bundle.putString("bedroom","bedroom");
-
-//Add the bundle to the intent
-                i.putExtras(bundle);
-
-//Fire that second activity
-                startActivity(i);
-
-            }
-        });
-
-
-        bedroombtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(fragment_profile.this.getActivity(), Seartch_Page.class));
-            }
-        });
-
-        livingroombtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getContext(),Seartch_Page.class);
-
-//Create the bundle
-                Bundle bundle = new Bundle();
-
-//Add your data to bundle
-                bundle.putString("livingroom","livingroom");
-
-//Add the bundle to the intent
-                i.putExtras(bundle);
-
-//Fire that second activity
-                startActivity(i);
-
-            }
-        });
-
-
-        livingroombtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(fragment_profile.this.getActivity(), Seartch_Page.class));
-            }
-        });
-
-        return view;
-    }}
+}

@@ -75,7 +75,6 @@ public class MyFotoAdapter extends RecyclerView.Adapter<MyFotoAdapter.ViewHolder
 
         public ImageView post_image;
 
-
         public ViewHolder(View itemView) {
             super(itemView);
 

@@ -6,15 +6,13 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.ListView;
-import com.example.renad.exchangeit.searchAdapter;
-import com.google.firebase.FirebaseApp;
+
+
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,7 +20,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.sql.DatabaseMetaData;
 import java.util.ArrayList;
 
 public class Seartch_Page extends AppCompatActivity {
@@ -35,12 +32,17 @@ public class Seartch_Page extends AppCompatActivity {
     ArrayList<String> productImgList;
     searchAdapter searchAdapter;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nora_page);
 
-
+        Toolbar toolbar=findViewById(R.id.toolBar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Go Back");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         search_edit_text=(EditText)findViewById(R.id.search_edit_text);
         recyclerView=(RecyclerView)findViewById(R.id.recycleView);
@@ -57,13 +59,14 @@ public class Seartch_Page extends AppCompatActivity {
         //Extract the data…
 //        String stuff = bundle.getString("stuff");
 
-
+        //EditText Kitchnbtn;
 
         //fnameList =new ArrayList<>();
         productnameList=new ArrayList<>();
         productImgList=new ArrayList<>();
             productnameList=new ArrayList<>();
             productImgList=new ArrayList<>();
+
         search_edit_text.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
@@ -77,6 +80,7 @@ public class Seartch_Page extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+
                 if(!s.toString().isEmpty()){
                     setAdapter(s.toString());
 
@@ -107,6 +111,7 @@ public class Seartch_Page extends AppCompatActivity {
 
                 //To take each value from database using for loop
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+
                     String userId=snapshot.getKey();
                     //String fname= snapshot.child("fname").getValue(String.class);
                     String productName =snapshot.child("name").getValue(String.class);
