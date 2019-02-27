@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.renad.exchangeit.Adapter.MyFotoAdapter;
 import com.example.renad.exchangeit.Adapter.MySearchAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,7 +22,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class search_products_class extends AppCompatActivity {
-
+    String userid;
     RecyclerView recyclerView;
     MySearchAdapter mySearchAdapter;
     List<Product> productList;
@@ -36,6 +38,8 @@ public class search_products_class extends AppCompatActivity {
         productList=new ArrayList<>();
         mySearchAdapter =new MySearchAdapter(getApplicationContext(),productList);
         recyclerView.setAdapter(mySearchAdapter);
+        FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+      userid =user.getUid();
 
         myFotos();
 
@@ -51,6 +55,8 @@ public class search_products_class extends AppCompatActivity {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Product product=snapshot.getValue(Product.class);
                     ///user id does not equals userid
+                    String idProduct = product.getId();
+                    if(!idProduct.equals(userid))
                     productList.add(product);
 
                 }
