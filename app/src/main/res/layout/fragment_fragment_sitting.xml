@@ -79,6 +79,8 @@
             android:hint="Last Name"
             android:textAlignment="center"
             android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.224"
@@ -149,44 +151,52 @@
         <Button
             android:id="@+id/Change"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="112dp"
-            android:layout_height="59dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
 
             android:layout_marginTop="8dp"
-            android:background="@drawable/border"
             android:text="Change"
-            android:textColor="@color/GhostWhite"
-            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.161"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
-            app:layout_constraintVertical_bias="0.49" />
+            app:layout_constraintVertical_bias="0.49"
+
+            android:textSize="24sp"
+            android:layout_width="176dp"
+            android:layout_height="42dp"
+            android:layout_marginRight="9dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp"
+
+            android:background="@drawable/bottun_design"
+            android:textColor="@color/GhostWhite"
+
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/Cancel"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="112dp"
-            android:layout_height="59dp"
-            android:layout_marginBottom="8dp"
 
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/border"
             android:text="Cancle"
-            android:textColor="@color/GhostWhite"
-            android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.58"
-            app:layout_constraintStart_toEndOf="@+id/Change"
-            app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+            app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_width="176dp"
+            android:layout_height="42dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp"
+
+            android:background="@drawable/bottun_design"
+            android:textColor="@color/GhostWhite"
+
+
+            />
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>

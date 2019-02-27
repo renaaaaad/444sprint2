@@ -1,22 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/White"
+    >
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:id="@+id/toolBar"
+        android:layout_height="40dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/bottun_design"
+        android:textColor="@color/GhostWhite"
+        android:visibility="visible"
+        tools:background="@drawable/bottun_design"
+        tools:textSize="20sp"
+        >
 
+    </android.support.v7.widget.Toolbar>
     <EditText
         android:id="@+id/search_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="Search..."
-        android:inputType="text" />
+        android:fontFamily="sans-serif-medium"
+
+        android:inputType="text"
+
+        />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        tools:itemCount="5"
+        tools:spanCount="5"
+
+        />
+
 
 
 </LinearLayout>

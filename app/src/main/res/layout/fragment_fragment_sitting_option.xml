@@ -21,11 +21,11 @@
             android:background="@drawable/h2" />
 
         <Button
+            android:layout_marginStart="10dp"
+
             android:id="@+id/editButton"
-            android:layout_width="match_parent"
+            android:layout_width="388dp"
             android:layout_height="65dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/border2"
             android:clickable="true"
@@ -40,7 +40,6 @@
         <Button
             android:id="@+id/rest_password"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_marginBottom="112dp"
             android:layout_marginEnd="8dp"
@@ -48,6 +47,8 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/border2"
             android:clickable="true"
+            android:layout_width="388dp"
+
             android:src="@drawable/profileavatar"
             android:text="Reset Password"
             android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
