@@ -122,9 +122,7 @@ city2 =        (TextView)findViewById(R.id.city);
 
 
 
-
-
-                navigation = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+ navigation = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 cancel  = (Button)findViewById(R.id.button6);
 cancel.setOnClickListener(new View.OnClickListener() {

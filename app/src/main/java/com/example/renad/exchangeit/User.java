@@ -11,12 +11,13 @@ public class User {
 
     private String email;
     private String imageurl;
+    private int product_number ;
 
 public User(){
 
 }
 
-    public User(String id, String fname, String lname, String phoneNumber, String city, String email, String imageurl , String t) {
+    public User(String id, String fname, String lname, String phoneNumber, String city, String email, String imageurl , String t , int num) {
         this.id = id;
         Fname = fname;
         Lname = lname;
@@ -25,6 +26,7 @@ public User(){
         this.email = email;
         this.imageurl = imageurl;
         type =t;
+        product_number = num;
     }
 
 
@@ -103,6 +105,15 @@ public User(){
 
     public void setImageurl(String imageurl) {
         this.imageurl = imageurl;
+    }
+
+
+    public int getNumber() {
+        return product_number;
+    }
+
+    public void setNumber(int number) {
+        this.product_number = number;
     }
 }// the class
 
