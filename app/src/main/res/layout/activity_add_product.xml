@@ -32,14 +32,18 @@
 
                 <TextView
                     android:id="@+id/textView5"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="sans-serif-medium"
                     android:text="Product Name :"
+                    android:textColor="@color/Snow"
                     android:textSize="24sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/product_name"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.034"
@@ -69,6 +73,10 @@
 
                     <TextView
                         android:id="@+id/textView8"
+                        android:textColor="@color/Snow"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+
                         android:layout_width="match_parent"
                         android:layout_height="33dp"
                         android:layout_marginBottom="8dp"
@@ -79,10 +87,8 @@
                         android:text="Category :"
                         android:textSize="24sp"
                         app:layout_constraintBottom_toTopOf="@+id/textView9"
-                        app:layout_constraintEnd_toStartOf="@+id/monthesChoice"
                         app:layout_constraintHorizontal_bias="0.178"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editText3"
                         tools:ignore="MissingConstraints" />
 
                     <Spinner
@@ -95,6 +101,9 @@
                         android:layout_marginEnd="8dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="30dp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+
                         android:layout_weight="1"
                         android:drawSelectorOnTop="true"
                         android:entries="@array/months"
@@ -116,6 +125,10 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:textColor="@color/Snow"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+
                         android:id="@+id/textView9"
                         android:layout_width="match_parent"
                         android:layout_height="32dp"
@@ -126,11 +139,9 @@
                         android:layout_weight="1"
                         android:text="Image :"
                         android:textSize="24sp"
-                        app:layout_constraintBottom_toTopOf="@+id/textView10"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/editText3"
                         app:layout_constraintVertical_bias="1.0"
                         tools:ignore="MissingConstraints" />
 
@@ -139,6 +150,7 @@
 
                         android:layout_height="42dp"
                         android:layout_marginStart="15dp"
+                        android:fontFamily="sans-serif-medium"
 
                         android:background="@drawable/bottun_design"
                         android:textColor="@color/GhostWhite"
@@ -177,9 +189,9 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="0dp"
                     android:layout_marginRight="0dp"
+
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="44dp"
-                    app:layout_constraintBottom_toTopOf="@+id/textView10"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.141"
                     app:layout_constraintStart_toStartOf="parent"
@@ -187,9 +199,13 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
+                    android:textColor="@color/Snow"
+                    android:fontFamily="sans-serif-medium"
+
                     android:id="@+id/Discription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="30dp"
@@ -228,6 +244,7 @@
                         android:layout_width="176dp"
                         android:layout_height="42dp"
                         android:layout_marginStart="15dp"
+                        android:fontFamily="sans-serif-medium"
 
                         android:layout_marginTop="16dp"
                         android:background="@drawable/bottun_design"
@@ -261,6 +278,7 @@
                         android:layout_width="176dp"
                         android:layout_height="42dp"
                         android:layout_marginStart="15dp"
+                        android:fontFamily="sans-serif-medium"
 
                         android:layout_marginTop="16dp"
                         android:background="@drawable/bottun_design"

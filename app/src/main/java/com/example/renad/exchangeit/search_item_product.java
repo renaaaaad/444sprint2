@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -52,6 +53,16 @@ user = (TextView)findViewById(R.id.username);
 //name_item.setText(id);
 // to get the item information
 
+        ////// back btn
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(search_item_product.this, Seartch_Page.class);
+                startActivity(i);
+            }
+        });
+
+
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Products");
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -81,7 +92,10 @@ user = (TextView)findViewById(R.id.username);
             FirebaseDatabase.getInstance().getReference("Users").child(id_user).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    user.setText(dataSnapshot.child("fname").getValue().toString()+" "+dataSnapshot.child("lname").getValue().toString());
+                    String fname=dataSnapshot.child("fname").getValue().toString();
+                    String lname=dataSnapshot.child("lname").getValue().toString();
+
+                    user.setText(fname);
                     String url_photo = dataSnapshot.child("imageurl").getValue().toString();
                     Glide.with(getApplicationContext()).load(url_photo).into(image_profile);
 

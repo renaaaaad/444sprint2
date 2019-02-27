@@ -9,8 +9,15 @@
     >
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolBar">
+        android:id="@+id/toolBar"
+        android:layout_height="40dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/bottun_design"
+        android:textColor="@color/GhostWhite"
+        android:visibility="visible"
+        tools:background="@drawable/bottun_design"
+        tools:textSize="20sp"
+        >
 
     </android.support.v7.widget.Toolbar>
     <EditText
@@ -19,6 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="Search..."
+        android:fontFamily="sans-serif-medium"
+
         android:inputType="text"
 
         />

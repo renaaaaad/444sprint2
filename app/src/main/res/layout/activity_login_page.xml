@@ -9,6 +9,8 @@
     tools:context=".loginPage">
 
     <EditText
+        android:fontFamily="sans-serif-medium"
+
         android:id="@+id/email"
         android:layout_width="325dp"
         android:layout_height="50dp"
@@ -34,6 +36,7 @@
 
     <EditText
         android:id="@+id/passord"
+        android:fontFamily="sans-serif-medium"
 
         android:layout_width="323dp"
         android:layout_height="51dp"
@@ -85,10 +88,10 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:fontFamily="sans-serif-medium"
 
         android:layout_marginTop="8dp"
         android:background="@drawable/border"
-        android:fontFamily="monospace"
         android:lineSpacingExtra="8sp"
         android:onClick="login"
         android:text="LogIn"
@@ -116,6 +119,8 @@
         android:textColorLink="@color/PaleVioletRed"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.565"
@@ -136,6 +141,8 @@
         android:textColor="@color/GhostWhite"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -146,19 +153,21 @@
 
     <TextView
         android:id="@+id/forgetPassword"
-        android:layout_width="189dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="231dp"
+        android:layout_height="29dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Forget You Password ?"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:text="Forget Your Password ?"
+        android:fontFamily="sans-serif-medium"
+
         android:textAlignment="center"
         android:textColor="@color/GhostWhite"
         android:textColorLink="@color/Honeydew"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.548"

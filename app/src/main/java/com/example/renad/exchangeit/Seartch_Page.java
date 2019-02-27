@@ -1,5 +1,6 @@
 package com.example.renad.exchangeit;
 
+import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,6 +44,9 @@ public class Seartch_Page extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Go Back");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitleTextColor(0xFFFFFFFF);
+        toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.White), PorterDuff.Mode.SRC_ATOP);
+
 
         search_edit_text=(EditText)findViewById(R.id.search_edit_text);
         recyclerView=(RecyclerView)findViewById(R.id.recycleView);
