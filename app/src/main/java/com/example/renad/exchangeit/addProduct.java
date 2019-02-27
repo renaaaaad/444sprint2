@@ -164,7 +164,7 @@ public class addProduct extends AppCompatActivity {
                             reference.child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    String number_of_products = dataSnapshot.child("product_number").getValue().toString();
+                                    String number_of_products = dataSnapshot.child("number").getValue().toString();
                                     product_nnumber = Integer.parseInt(number_of_products);
                                     product_nnumber++;
                                     product_nnumber_String =String.valueOf(product_nnumber);
