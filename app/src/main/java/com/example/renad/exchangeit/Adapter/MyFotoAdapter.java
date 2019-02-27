@@ -103,10 +103,6 @@ private String id_image;
 
                     String  url_photo=product2.getPath();
 
-
-
-
-
                     Intent intent = new Intent(context, itemProduct.class);
 //                    intent.putExtra("productId",dec);
 
