@@ -17,13 +17,13 @@ import java.util.List;
 
 public class MySearchAdapter extends RecyclerView.Adapter<MySearchAdapter.ViewHolder>{
     private Context context;
-    private List<Product> mProduct;
+    private List<SystemProduct> mProduct;
 
 
 
 
 
-    public MySearchAdapter(Context context, List<Product> productList) {
+    public MySearchAdapter(Context context, List<SystemProduct> productList) {
         this.context = context;
         this.mProduct = productList;
     }
@@ -38,7 +38,7 @@ public class MySearchAdapter extends RecyclerView.Adapter<MySearchAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
-        Product product=mProduct.get(i);
+        SystemProduct product=mProduct.get(i);
 
         Glide.with(context).load(product.getPath()).into(viewHolder.search_image);
 

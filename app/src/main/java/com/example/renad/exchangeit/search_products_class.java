@@ -25,8 +25,9 @@ public class search_products_class extends AppCompatActivity {
     String userid;
     RecyclerView recyclerView;
     MySearchAdapter mySearchAdapter;
-    List<Product> productList;
-
+    List<SystemProduct> productList;
+ User user = new User();
+ String user_id_firebase ;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_products);
@@ -38,8 +39,23 @@ public class search_products_class extends AppCompatActivity {
         productList=new ArrayList<>();
         mySearchAdapter =new MySearchAdapter(getApplicationContext(),productList);
         recyclerView.setAdapter(mySearchAdapter);
-        FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+        final FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
       userid =user.getUid();
+        DatabaseReference reference5= FirebaseDatabase.getInstance().getReference("Users");
+        reference5.child(userid).addListenerForSingleValueEvent(new ValueEventListener(){
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                user_id_firebase = dataSnapshot.child("id").getValue().toString();
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
         myFotos();
 
@@ -53,10 +69,10 @@ public class search_products_class extends AppCompatActivity {
                 productList.clear();
 
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Product product=snapshot.getValue(Product.class);
+                    SystemProduct product=snapshot.getValue(SystemProduct.class);
                     ///user id does not equals userid
-                    String idProduct = product.getId();
-                    if(!idProduct.equals(userid))
+                    String idProduct = product.getUseID();
+                    if(!(idProduct.equals(userid)))
                     productList.add(product);
 
                 }

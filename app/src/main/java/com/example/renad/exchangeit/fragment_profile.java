@@ -19,6 +19,8 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.example.renad.exchangeit.Adapter.MySearchAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,8 +37,8 @@ public class fragment_profile extends Fragment {
     TextView searchView;
     RecyclerView recyclerView;
     MySearchAdapter mySearchAdapter;
-    List<Product> productList;
-
+    List<SystemProduct> productList;
+String userid ;
     TextView textView;
     public fragment_profile() {
         // Required empty public constructor
@@ -48,6 +50,13 @@ public class fragment_profile extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_fragment_profile, container, false);
+
+//----------------------------------------------
+        FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+         userid=user.getUid();
+
+
+
         searchView=(TextView)view.findViewById(R.id.searchForProduct);
         searchView.setOnClickListener(new View.OnClickListener()
         {
@@ -82,9 +91,14 @@ return view;
                 productList.clear();
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Product product = snapshot.getValue(Product.class);
+                    SystemProduct product = snapshot.getValue(SystemProduct.class);
                     ///user id does not equals userid
-                    productList.add(product);
+                    String idProduct = product.getUseID();
+                    if((idProduct.equals(userid))){
+                        continue;}
+                    else {
+
+                    productList.add(product);}
 
                 }
 

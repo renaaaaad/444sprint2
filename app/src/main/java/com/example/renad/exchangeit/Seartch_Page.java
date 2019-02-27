@@ -31,13 +31,16 @@ public class Seartch_Page extends AppCompatActivity {
     ArrayList<String> productnameList;
     ArrayList<String> productImgList;
     searchAdapter searchAdapter;
-
+    String userId_new;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nora_page);
+
+        FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+        userId_new=user.getUid();
 
         Toolbar toolbar=findViewById(R.id.toolBar);
         setSupportActionBar(toolbar);
@@ -55,6 +58,8 @@ public class Seartch_Page extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this,LinearLayoutManager.VERTICAL));
         //Get the bundle
         Bundle bundle = getIntent().getExtras();
+
+
 
         //Extract the data…
 //        String stuff = bundle.getString("stuff");
@@ -112,8 +117,14 @@ public class Seartch_Page extends AppCompatActivity {
                 //To take each value from database using for loop
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()){
 
+                    String userId2=snapshot.child("useID").getValue().toString();
+                    if(userId2.equals(userId_new)) {
+                        continue;
+                    }
+
+
                     String userId=snapshot.getKey();
-                    //String fname= snapshot.child("fname").getValue(String.class);
+                    //String fname= snapshot.child("fname").getValue(String.class);z
                     String productName =snapshot.child("name").getValue(String.class);
                     String produtImg =snapshot.child("path").getValue(String.class);
 
