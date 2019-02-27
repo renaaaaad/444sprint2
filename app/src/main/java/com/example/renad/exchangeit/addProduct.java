@@ -171,7 +171,7 @@ public class addProduct extends AppCompatActivity {
 
                                     FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("product_number").setValue(product_nnumber_String);
 
-                                    Product product= new Product(p_name,p_des,p_cat,path," ",product_nnumber_String );
+                                    Product product= new Product(p_name,p_des,p_cat,path,user_id,product_nnumber_String );
 
                                     // to stor the dproduct to the user and the alon (table)
 

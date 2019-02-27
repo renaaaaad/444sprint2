@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.example.renad.exchangeit.Product;
 import com.example.renad.exchangeit.R;
+import com.example.renad.exchangeit.SystemProduct;
 
 import java.util.List;
 
@@ -19,9 +20,12 @@ public class MySearchAdapter extends RecyclerView.Adapter<MySearchAdapter.ViewHo
     private List<Product> mProduct;
 
 
-    public MySearchAdapter(Context context, List<Product> mProduct) {
+
+
+
+    public MySearchAdapter(Context context, List<Product> productList) {
         this.context = context;
-        this.mProduct = mProduct;
+        this.mProduct = productList;
     }
 
     @NonNull
