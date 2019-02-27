@@ -91,6 +91,14 @@
           }
         },
         {
+          "client_id": "782193102473-797ac76rs1b3lgrm2eb04b43igt9flp4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.renad.exchangeit",
+            "certificate_hash": "a27886e8d704dbf6e1026f6d97dc91a055b8c200"
+          }
+        },
+        {
           "client_id": "782193102473-dj5tfjcfnfdibh3uqujg0kc63hqn6gv1.apps.googleusercontent.com",
           "client_type": 3
         }
