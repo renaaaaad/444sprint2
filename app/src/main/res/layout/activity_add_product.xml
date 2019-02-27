@@ -135,16 +135,26 @@
                         tools:ignore="MissingConstraints" />
 
                     <Button
+
+
+                        android:layout_height="42dp"
+                        android:layout_marginStart="15dp"
+
+                        android:background="@drawable/bottun_design"
+                        android:textColor="@color/GhostWhite"
+                        android:textColorLink="@color/GhostWhite"
+                        android:visibility="visible"
+                        tools:background="@drawable/bottun_design"
+                        tools:textSize="18sp"
+
+
                         android:id="@+id/explor_phone"
                         style="@style/Widget.AppCompat.Button.Borderless"
                         android:layout_width="match_parent"
-                        android:layout_height="38dp"
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
                         android:layout_marginTop="40dp"
                         android:layout_weight="1"
-                        android:background="@drawable/border3"
                         android:text="Explor my Phone"
                         android:textAlignment="center"
                         android:textSize="18sp"
@@ -152,7 +162,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.764"
                         app:layout_constraintStart_toEndOf="@+id/textView9"
-                        app:layout_constraintTop_toBottomOf="@+id/monthesChoice"
                         app:layout_constraintVertical_bias="0.571"
                         tools:ignore="MissingConstraints" />
                 </LinearLayout>
@@ -216,21 +225,29 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:layout_width="176dp"
+                        android:layout_height="42dp"
+                        android:layout_marginStart="15dp"
+
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bottun_design"
+                        android:text="Cancel "
+                        android:textColor="@color/GhostWhite"
+                        android:textColorLink="@color/GhostWhite"
+                        android:visibility="visible"
+                        tools:background="@drawable/bottun_design"
+                        tools:textSize="18sp"
+
+
+
                         android:id="@+id/cancel_home"
                         style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="134dp"
-                        android:layout_height="62dp"
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="44dp"
                         android:layout_weight="1"
-                        android:background="@drawable/border3"
-                        android:text="Cancel "
                         android:textAlignment="center"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/monthesChoice"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.873"
                         app:layout_constraintStart_toStartOf="parent"
@@ -239,17 +256,28 @@
                         tools:ignore="MissingConstraints" />
 
                     <Button
+
+
+                        android:layout_width="176dp"
+                        android:layout_height="42dp"
+                        android:layout_marginStart="15dp"
+
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bottun_design"
+                        android:onClick="Add"
+                        android:text=" Add Product "
+                        android:textColor="@color/GhostWhite"
+                        android:textColorLink="@color/GhostWhite"
+                        android:visibility="visible"
+                        tools:background="@drawable/bottun_design"
+                        tools:textSize="18sp"
+
+
                         android:id="@+id/add_button"
                         style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="134dp"
-                        android:layout_height="62dp"
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="44dp"
                         android:layout_weight="1"
-                        android:background="@drawable/border3"
-                        android:text="Add"
                         android:textAlignment="center"
 
                         android:textSize="18sp"

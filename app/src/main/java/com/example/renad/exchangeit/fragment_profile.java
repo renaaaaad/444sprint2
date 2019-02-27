@@ -36,6 +36,8 @@ public class fragment_profile extends Fragment {
     RecyclerView recyclerView;
     MySearchAdapter mySearchAdapter;
     List<Product> productList;
+
+    TextView textView;
     public fragment_profile() {
         // Required empty public constructor
     }
@@ -62,6 +64,9 @@ public class fragment_profile extends Fragment {
         productList=new ArrayList<>();
         mySearchAdapter =new MySearchAdapter(getContext(),productList);
         recyclerView.setAdapter(mySearchAdapter);
+        textView=(TextView)view.findViewById(R.id.searchForProduct);
+        textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_search, 0, 0, 0);
+
 
         myFotos();
 return view;
