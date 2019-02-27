@@ -94,35 +94,33 @@
                         <Button
                             android:id="@+id/button4"
 
-                            style="@style/Widget.AppCompat.Button.Borderless.Colored"
                             android:layout_width="176dp"
                             android:layout_height="42dp"
-
-                            android:layout_marginLeft="10dp"
                             android:layout_marginStart="15dp"
+
                             android:layout_marginTop="16dp"
+                            android:background="@drawable/bottun_design"
                             android:onClick="Add"
                             android:text=" Add Product "
                             android:textColor="@color/GhostWhite"
                             android:textColorLink="@color/GhostWhite"
                             android:visibility="visible"
-                            tools:background="@drawable/border"
+                            tools:background="@drawable/bottun_design"
                             tools:textSize="18sp" />
 
                         <Button
                             android:id="@+id/button6"
 
-                            style="@style/Widget.AppCompat.Button.Borderless.Colored"
                             android:layout_width="176dp"
                             android:layout_height="42dp"
-                            android:layout_marginRight="10dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
+                            android:background="@drawable/bottun_design"
                             android:text="LogOut"
                             android:textColor="@color/GhostWhite"
                             android:textColorLink="@color/GhostWhite"
                             android:visibility="visible"
-                            tools:background="@drawable/border"
+                            tools:background="@drawable/bottun_design"
                             tools:textSize="18sp" />
                     </LinearLayout>
 
