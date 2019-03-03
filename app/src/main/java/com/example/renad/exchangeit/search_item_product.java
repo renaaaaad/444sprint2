@@ -48,7 +48,7 @@ public class search_item_product extends AppCompatActivity {
 user = (TextView)findViewById(R.id.username);
 
 // to get the path of item
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
          id = intent.getStringExtra("path");
 //name_item.setText(id);
 // to get the item information
@@ -126,8 +126,16 @@ user = (TextView)findViewById(R.id.username);
             }
         });
 
+   // to requset prduct
+            request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+Intent intent1 = new Intent(getApplicationContext(),requst_page_displayProducts.class);
+intent1.putExtra("product_user",new_id);
+startActivity(intent1);
+            }
+        });
 
 
-
-    }
+    }// on creat
 }

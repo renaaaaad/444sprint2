@@ -16,10 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".search_item_product"></activity>
+        <activity android:name=".search_item_product" />
         <activity android:name=".searchResult" />
-
         <activity
             android:name=".First_page"
             android:exported="true">
@@ -38,22 +36,19 @@
         <activity android:name=".sitting" />
         <activity android:name=".forgot_password" />
         <activity android:name=".addProduct" />
-
-
         <activity android:name=".loginPage" />
-
         <activity android:name=".resetPass" />
         <activity
             android:name=".search_products_class"
             android:parentActivityName=".Seartch_Page" />
-
         <activity android:name=".itemProduct" />
-        <activity android:name=".resetPass"></activity>
+        <activity android:name=".resetPass" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+        <activity android:name=".requst_page_displayProducts"></activity>
     </application>
 
 </manifest>
