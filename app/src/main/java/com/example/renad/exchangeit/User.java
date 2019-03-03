@@ -11,7 +11,7 @@ public class User {
 
     private String email;
     private String imageurl;
-    private int product_number ;
+    private int Counter ;
 
 public User(){
 
@@ -26,7 +26,7 @@ public User(){
         this.email = email;
         this.imageurl = imageurl;
         type =t;
-        product_number = num;
+        Counter = num;
     }
 
 
@@ -109,11 +109,11 @@ public User(){
 
 
     public int getNumber() {
-        return product_number;
+        return Counter;
     }
 
     public void setNumber(int number) {
-        this.product_number = number;
+        this.Counter = number;
     }
 }// the class
 
