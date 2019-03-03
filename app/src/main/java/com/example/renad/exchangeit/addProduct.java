@@ -164,12 +164,12 @@ public class addProduct extends AppCompatActivity {
                             reference.child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    String number_of_products = dataSnapshot.child("product_number").getValue().toString();
+                                    String number_of_products = dataSnapshot.child("number").getValue().toString();
                                     product_nnumber = Integer.parseInt(number_of_products);
                                     product_nnumber++;
                                     product_nnumber_String =String.valueOf(product_nnumber);
 
-                                    FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("product_number").setValue(product_nnumber_String);
+                                    FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("number").setValue(product_nnumber_String);
 
                                     Product product= new Product(p_name,p_des,p_cat,path,user_id,product_nnumber_String );
 product.setId(user_id);

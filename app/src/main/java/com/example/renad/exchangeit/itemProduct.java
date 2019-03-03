@@ -127,7 +127,7 @@ private Button delebtn;
 int num2 = Integer.parseInt(num);
 num2--;
 String num3 = Integer.toString(num2);
-                     FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Products").child("number").setValue(num3);                 }
+                     FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("number").setValue(num3);                 }
 
                  @Override
                  public void onCancelled(@NonNull DatabaseError databaseError) {
