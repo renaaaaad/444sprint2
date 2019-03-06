@@ -1,6 +1,7 @@
 package com.example.renad.exchangeit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.renad.exchangeit.Adapter.Adapter_listProduct_request;
 import com.example.renad.exchangeit.Adapter.MyFotoAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,13 +28,15 @@ public class requst_page_displayProducts extends AppCompatActivity {
 
     RecyclerView recyclerView ;
     MyFotoAdapter myFotoAdapter;
+    Adapter_listProduct_request adapter_listProduct_request ;
     List<Product> productList;
 String user_ID ;
     FirebaseUser firebaseUser;
 
     private myPHotoAdapter myPHotoAdapter ;
     private List<Product> list_product ;
-
+String user_ID_exchanged;
+String user_product ;
     //------------------------------------------------ the data base varible
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
@@ -46,6 +50,9 @@ String user_ID ;
         FirebaseUser userID=FirebaseAuth.getInstance().getCurrentUser();
         user_ID = userID.getUid().toString();
         SharedPreferences perfs=getApplicationContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE);
+Intent intent = getIntent();
+        user_ID_exchanged = intent.getStringExtra("product_user");
+        user_product = intent.getStringExtra("product_name");
 
 
         //show product
@@ -55,8 +62,10 @@ String user_ID ;
         LinearLayoutManager linearLayoutManager1= new GridLayoutManager(getApplicationContext(),3);
         recyclerView.setLayoutManager(linearLayoutManager1);
         productList=new ArrayList<>();
-        myFotoAdapter=new MyFotoAdapter(getApplicationContext(),productList);
-        recyclerView.setAdapter(myFotoAdapter);
+        adapter_listProduct_request=new Adapter_listProduct_request(getApplicationContext(),productList);
+        adapter_listProduct_request.setCurrent_product(user_product);
+        adapter_listProduct_request.setUser_ex(user_ID_exchanged);
+        recyclerView.setAdapter(adapter_listProduct_request);
 
         myFotos(user_ID);
 
@@ -78,7 +87,7 @@ String user_ID ;
                 }
 
                 Collections.reverse(productList);
-                myFotoAdapter.notifyDataSetChanged();
+                adapter_listProduct_request.notifyDataSetChanged();
             }
 
             @Override

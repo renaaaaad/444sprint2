@@ -20,10 +20,10 @@
             android:id="@+id/product_image"
             android:layout_width="55dp"
             android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
             android:padding="2dp"
-            android:src="@mipmap/ic_launcher_round"
 
-            />
+            android:src="@mipmap/ic_launcher_round" />
 
         <TextView
             android:id="@+id/product_name"

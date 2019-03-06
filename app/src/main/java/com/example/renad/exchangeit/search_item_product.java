@@ -33,7 +33,9 @@ public class search_item_product extends AppCompatActivity {
     ImageView item_image ;
     Button back , request ;
     ImageView image_profile;
-
+String nameProduct ;
+String product_nname ;
+ String Pn ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +85,7 @@ user = (TextView)findViewById(R.id.username);
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             // set the data to the layout
             name_item.setText(dataSnapshot.child("name").getValue().toString());
+            product_nname = dataSnapshot.child("name").getValue().toString() ;
            discription_item.setText(dataSnapshot.child("discription").getValue().toString());
            catigory_item.setText(dataSnapshot.child("category").getValue().toString());
            String url_photo = dataSnapshot.child("path").getValue().toString();
@@ -132,6 +135,7 @@ user = (TextView)findViewById(R.id.username);
             public void onClick(View v) {
 Intent intent1 = new Intent(getApplicationContext(),requst_page_displayProducts.class);
 intent1.putExtra("product_user",new_id);
+intent1.putExtra("product_name", product_nname);
 startActivity(intent1);
             }
         });
