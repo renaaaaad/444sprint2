@@ -11,8 +11,8 @@ public class User {
 
     private String email;
     private String imageurl;
-
-
+private int requests  ;
+int recive_request ;
 
     private int Counter ;
 
@@ -21,7 +21,7 @@ public User(){
 
 }
 
-    public User(String id, String fname, String lname, String phoneNumber, String city, String email, String imageurl , String t , int num) {
+    public User(String id, String fname, String lname, String phoneNumber, String city, String email, String imageurl , String t , int num , int r , int recive_request) {
         this.id = id;
         Fname = fname;
         Lname = lname;
@@ -30,13 +30,27 @@ public User(){
         this.email = email;
         this.imageurl = imageurl;
         type =t;
-
-
+requests = r ;
+this.recive_request = recive_request ;
         Counter = num;
 
     }
 
+    public int getRequests() {
+        return requests;
+    }
 
+    public void setRequests(int requests) {
+        this.requests = requests;
+    }
+
+    public int getRecive_request() {
+        return recive_request;
+    }
+
+    public void setRecive_request(int recive_request) {
+        this.recive_request = recive_request;
+    }
 
     public void setId(String id) {
         this.id = id;}
