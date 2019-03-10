@@ -103,6 +103,17 @@
 
 
     </android.support.constraint.ConstraintLayout>
+    <android.support.design.internal.BottomNavigationItemView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ExtraText"
+
+
+        >
+
+
+
+    </android.support.design.internal.BottomNavigationItemView>
 
 
 
