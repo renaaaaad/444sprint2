@@ -42,6 +42,8 @@
                     android:orientation="horizontal">
 
                     <EditText
+                        android:fontFamily="sans-serif-medium"
+
                         android:id="@+id/firstName"
                         android:layout_width="162dp"
                         android:layout_height="match_parent"
@@ -69,6 +71,7 @@
                         android:id="@+id/lastName"
                         android:layout_width="162dp"
                         android:layout_height="match_parent"
+                        android:fontFamily="sans-serif-medium"
 
                         android:layout_marginBottom="0dp"
                         android:layout_marginEnd="10dp"
@@ -97,6 +100,7 @@
                     android:layout_marginLeft="50dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="0dp"
+                    android:fontFamily="sans-serif-medium"
 
                     android:background="@drawable/edit_text"
                     android:ems="10"
@@ -115,6 +119,7 @@
                     android:layout_width="388dp"
                     android:layout_height="51dp"
                     android:layout_margin="10dp"
+                    android:fontFamily="sans-serif-medium"
 
                     android:layout_marginBottom="24dp"
                     android:layout_marginEnd="40dp"
@@ -134,6 +139,7 @@
                     android:layout_width="388dp"
                     android:layout_height="51dp"
                     android:layout_margin="10dp"
+                    android:fontFamily="sans-serif-medium"
 
                     android:layout_marginBottom="24dp"
                     android:layout_marginEnd="8dp"
@@ -157,6 +163,7 @@
                     android:layout_height="51dp"
                     android:layout_margin="10dp"
                     android:layout_marginBottom="20dp"
+                    android:fontFamily="sans-serif-medium"
 
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
@@ -187,6 +194,7 @@
                     android:gravity="center"
                     android:textColor="@color/Black"
                     android:textSize="20sp"
+                    android:fontFamily="sans-serif-medium"
 
 
                     android:textStyle="bold"
@@ -211,6 +219,8 @@
                     android:text="Sign Up"
                     android:textColor="@color/GhostWhite"
                     android:textSize="20sp"
+                    android:fontFamily="sans-serif-medium"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.507"
@@ -233,6 +243,8 @@
                     android:textAlignment="center"
                     android:textColor="@color/GhostWhite"
                     android:textSize="20sp"
+                    android:fontFamily="sans-serif-medium"
+
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

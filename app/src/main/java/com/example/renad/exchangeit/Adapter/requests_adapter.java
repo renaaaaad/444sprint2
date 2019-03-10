@@ -23,27 +23,28 @@ import com.example.renad.exchangeit.itemProduct;
 
 import java.util.List;
 
-public class MyFotoAdapter extends RecyclerView.Adapter<MyFotoAdapter.ViewHolder>{
+public class requests_adapter extends RecyclerView.Adapter<requests_adapter.ViewHolder>{
 
     private Context context;
     private List<Product> mPosts;
     SystemProduct systemProduct;
 
 
-private String id_image;
+    private String id_image;
 
 
-    public MyFotoAdapter(Context context, List<Product> mPosts) {
+    public requests_adapter(Context context, List<Product> mPosts) {
         this.context = context;
         this.mPosts = mPosts;
     }
 
-    @NonNull
+
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view= LayoutInflater.from(context).inflate(R.layout.fotos_item,viewGroup,false);
-        return new MyFotoAdapter.ViewHolder(view);
+        return new requests_adapter.ViewHolder(view);
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
@@ -123,4 +124,23 @@ private String id_image;
             });
         }
     }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//---------------------------------------------------------------------------------------
+}// class

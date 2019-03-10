@@ -4,7 +4,9 @@ public class SystemProduct {
 
     private String name , discription , category  ,path,useID,productID ;
 
+public SystemProduct(){
 
+}
     public SystemProduct(String name, String discription, String category, String path, String useID, String productID) {
         this.name = name;
         this.discription = discription;

@@ -4,11 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
+    <com.example.renad.exchangeit.SquareimageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="1dp"
-        android:id="@+id/post_image"/>
+        android:scaleType="centerCrop"
+        android:id="@+id/post_image"
+        android:horizontalSpacing="1dp"
+        android:verticalSpacing="1dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"/>
 
 
 </RelativeLayout>

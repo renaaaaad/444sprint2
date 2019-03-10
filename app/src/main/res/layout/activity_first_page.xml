@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="120dp"
             android:background="@drawable/border"
+            android:fontFamily="sans-serif-medium"
             android:text="Sign In"
             android:textColor="@color/GhostWhite"
             android:textSize="24sp"
@@ -44,6 +45,8 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/border"
             android:text="Sign Up"
+            android:fontFamily="sans-serif-medium"
+
             android:textColor="@color/GhostWhite"
             android:textSize="24sp"
             android:textStyle="bold" />

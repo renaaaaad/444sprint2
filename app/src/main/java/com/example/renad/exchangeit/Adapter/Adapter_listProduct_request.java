@@ -18,31 +18,52 @@ import com.example.renad.exchangeit.Product;
 import com.example.renad.exchangeit.R;
 import com.example.renad.exchangeit.SquareimageView;
 import com.example.renad.exchangeit.SystemProduct;
+import com.example.renad.exchangeit.compleate_requests;
 import com.example.renad.exchangeit.fragment.ProductDetailsFragment;
 import com.example.renad.exchangeit.itemProduct;
 
 import java.util.List;
 
-public class MyFotoAdapter extends RecyclerView.Adapter<MyFotoAdapter.ViewHolder>{
+public class Adapter_listProduct_request extends RecyclerView.Adapter<Adapter_listProduct_request.ViewHolder>{
 
     private Context context;
     private List<Product> mPosts;
     SystemProduct systemProduct;
+String user_ex ;
+    String current_product ;
+    private String id_image;
 
+    public String getUser_ex() {
+        return user_ex;
+    }
 
-private String id_image;
+    public void setUser_ex(String user_ex) {
+        this.user_ex = user_ex;
+    }
 
+    public String getCurrent_product() {
+        return current_product;
+    }
 
-    public MyFotoAdapter(Context context, List<Product> mPosts) {
+    public void setCurrent_product(String current_product) {
+        this.current_product = current_product;
+    }
+
+    public Adapter_listProduct_request(Context context, List<Product> mPosts) {
         this.context = context;
         this.mPosts = mPosts;
+    }
+
+    public Adapter_listProduct_request(String userExchange, String p ) {
+        user_ex = userExchange ;
+        current_product = p ;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view= LayoutInflater.from(context).inflate(R.layout.fotos_item,viewGroup,false);
-        return new MyFotoAdapter.ViewHolder(view);
+        return new Adapter_listProduct_request.ViewHolder(view);
     }
 
     @Override
@@ -99,18 +120,19 @@ private String id_image;
                     int position = getAdapterPosition();
 
                     Product product2 = mPosts.get(position);
-                    String dec=product2.getProduct_number();
+                    String number_pp=product2.getProduct_number();
                     String itemID=product2.getPath();
-
+                    String name = product2.getName();
                     String  url_photo=product2.getPath();
 
-                    Intent intent = new Intent(context, itemProduct.class);
+                    Intent intent = new Intent(context, compleate_requests.class);
 //                    intent.putExtra("productId",dec);
+intent.putExtra("productName", name);
+intent.putExtra("productId",number_pp);
+intent.putExtra("exchane_product",current_product);
+intent.putExtra("userToExchangeWith", user_ex);
 
-                    Bundle extras = new Bundle();
-                    extras.putString("productId",dec);
-                    extras.putString("ItemId", itemID);
-                    intent.putExtras(extras);
+
 
                     context.startActivity(intent);
 

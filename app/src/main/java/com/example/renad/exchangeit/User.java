@@ -12,11 +12,16 @@ public class User {
     private String email;
     private String imageurl;
 
+
+
+    private int Counter ;
+
+
 public User(){
 
 }
 
-    public User(String id, String fname, String lname, String phoneNumber, String city, String email, String imageurl , String t) {
+    public User(String id, String fname, String lname, String phoneNumber, String city, String email, String imageurl , String t , int num) {
         this.id = id;
         Fname = fname;
         Lname = lname;
@@ -25,6 +30,10 @@ public User(){
         this.email = email;
         this.imageurl = imageurl;
         type =t;
+
+
+        Counter = num;
+
     }
 
 
@@ -103,6 +112,15 @@ public User(){
 
     public void setImageurl(String imageurl) {
         this.imageurl = imageurl;
+    }
+
+
+    public int getCounter() {
+        return Counter;
+    }
+
+    public void setCounter(int counter) {
+        Counter = counter;
     }
 }// the class
 

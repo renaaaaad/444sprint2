@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.renad.exchangeit.MainActivity_profilePage;
 import com.example.renad.exchangeit.Product;
 import com.example.renad.exchangeit.R;
@@ -22,6 +23,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import android.content.Intent;
@@ -43,6 +46,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -67,6 +71,8 @@ public class addProduct extends AppCompatActivity {
     String user_id;
     String path;
     SystemProduct systemProduct;
+    private  int product_nnumber  ;
+    String product_nnumber_String ;
 
 
     @Override
@@ -83,6 +89,9 @@ public class addProduct extends AppCompatActivity {
                     .child(firebaseUser.getUid());
             user_id  = firebaseUser.getUid();
         }
+
+
+
 
         image_insert = (Button)findViewById(R.id.explor_phone) ;
         cancel = (Button) findViewById(R.id.cancel_home);
@@ -147,31 +156,66 @@ public class addProduct extends AppCompatActivity {
                     }).addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-
                             path = uri.toString();
-                            Product product= new Product(p_name,p_des,p_cat,path);
 
-                            // to stor the dproduct to the user and the alon (table)
+                            // to get the number of products
 
-
-                            String proID=path.substring(8);
-                            systemProduct=new SystemProduct(p_name,p_des,p_cat,path,user_id,p_name+user_id );
-
-
-                            DatabaseReference ref = database.getInstance().getReference("Products");
-                            ref.child(p_name+user_id).setValue(systemProduct);
-
-
-
-
-                            firebaseDatabase.child("Products").child(p_name).setValue(product).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+                            reference.child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()){
-                                        startActivity( new Intent(getApplicationContext(),MainActivity_profilePage.class));
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    String number_of_products = dataSnapshot.child("number").getValue().toString();
+                                    product_nnumber = Integer.parseInt(number_of_products);
+                                    product_nnumber++;
+                                    product_nnumber_String =String.valueOf(product_nnumber);
+
+                                    FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("number").setValue(product_nnumber_String);
+
+                                    Product product= new Product(p_name,p_des,p_cat,path,user_id,product_nnumber_String );
+product.setId(user_id);
+                                    // to stor the dproduct to the user and the alon (table)
+
+
+                                    String proID=path.substring(8);
+                                    systemProduct=new SystemProduct(p_name,p_des,p_cat,path,user_id,p_name+user_id );
+
+
+                                    DatabaseReference ref = database.getInstance().getReference("Products");
+                                    ref.child(p_name+user_id).setValue(systemProduct);
+                                    product.setId(ref.push().getKey());
+
+
+
+                                    firebaseDatabase.child("Products").child(product_nnumber_String).setValue(product).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()){
+                                                startActivity( new Intent(getApplicationContext(),MainActivity_profilePage.class));
+                                            }
+                                        }
+                                    });
+
                                 }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
                                 }
                             });
+
+
+
+
+                            //--------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 
 
