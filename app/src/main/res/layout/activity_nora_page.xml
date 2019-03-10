@@ -12,10 +12,9 @@
         android:id="@+id/toolBar"
         android:layout_height="40dp"
         android:paddingTop="10dp"
-        android:background="@drawable/bottun_design"
+        android:background="@color/Snow"
         android:textColor="@color/GhostWhite"
         android:visibility="visible"
-        tools:background="@drawable/bottun_design"
         tools:textSize="20sp"
         >
 

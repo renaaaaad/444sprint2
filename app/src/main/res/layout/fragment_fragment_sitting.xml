@@ -166,7 +166,7 @@
             android:layout_weight="1"
             android:layout_marginBottom="10dp"
 
-            android:background="@drawable/bottun_design"
+            android:background="@color/Snow"
             android:textColor="@color/GhostWhite"
 
             tools:ignore="MissingConstraints" />
@@ -193,7 +193,7 @@
             android:layout_weight="1"
             android:layout_marginBottom="10dp"
 
-            android:background="@drawable/bottun_design"
+            android:background="@color/Snow"
             android:textColor="@color/GhostWhite"
 
 

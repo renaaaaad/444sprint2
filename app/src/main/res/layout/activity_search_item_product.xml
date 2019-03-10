@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".search_item_product">
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/big"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".search_item_product">
 
 
     <ScrollView
@@ -28,7 +29,7 @@
                 android:layout_height="42dp"
                 android:text=""
                 android:gravity="center"
-                android:background="@drawable/bottun_design"
+                android:background="@color/Snow"
                 android:textColor="@color/GhostWhite"
                 android:textStyle="bold"
 
@@ -140,6 +141,7 @@
 
 
             <LinearLayout
+                android:id="@+id/layoutalign"
                 android:layout_width="match_parent"
                 android:layout_height="73dp"
                 android:layout_marginLeft="10dp"
@@ -165,8 +167,9 @@
                     android:layout_weight="1"
                     android:layout_marginBottom="10dp"
 
-                    android:background="@drawable/bottun_design"
+                    android:background="@drawable/buttonborder"
                     android:textColor="@color/GhostWhite"
+
 
                     />
 
@@ -186,7 +189,7 @@
                     android:layout_weight="1"
                     android:layout_marginBottom="10dp"
 
-                    android:background="@drawable/bottun_design"
+                    android:background="@drawable/buttonborder"
                     android:textColor="@color/GhostWhite"
                     />
             </LinearLayout>
@@ -195,4 +198,8 @@
 
     </ScrollView>
 
-</LinearLayout>
+
+
+
+
+</android.support.constraint.ConstraintLayout>

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.bumptech.glide.Glide;
 import com.example.renad.exchangeit.MainActivity_profilePage;
@@ -38,7 +39,8 @@ import java.util.Map;
 public class sitting extends AppCompatActivity {
     private static final  int RESULT_LOAD_IMAGE=1;
     private Button cancle , update ;
-    private EditText name , lname ,phone , location ;
+    private EditText name , lname ,phone;
+    Spinner location ;
     private DatabaseReference firebaseDatabase;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
@@ -47,6 +49,8 @@ public class sitting extends AppCompatActivity {
     private Uri selectedimage;
     String user_id;
      String url_photo;
+    String Phone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -56,7 +60,8 @@ public class sitting extends AppCompatActivity {
         update = (Button) findViewById(R.id.Change);
         name = (EditText) findViewById(R.id.Fname);
         lname = (EditText) findViewById(R.id.Lname);
-        location = (EditText) findViewById(R.id.location);
+        location = (Spinner) findViewById(R.id.location);
+
         phone = (EditText) findViewById(R.id.phoneNumber);
 imageView_user = (ImageView)findViewById(R.id.imageView2) ;
         firebaseAuth = FirebaseAuth.getInstance();
@@ -73,7 +78,8 @@ imageView_user = (ImageView)findViewById(R.id.imageView2) ;
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 name.setText(dataSnapshot.child("fname").getValue().toString());
-                location.setText(dataSnapshot.child("city").getValue().toString());
+
+//location.set(dataSnapshot.child("city").getValue().toString());
                 lname.setText(dataSnapshot.child("lname").getValue().toString());
                 phone.setText(dataSnapshot.child("phoneNumber").getValue().toString());
                  url_photo = dataSnapshot.child("imageurl").getValue().toString();
@@ -116,11 +122,34 @@ imageView_user.setOnClickListener(new View.OnClickListener() {
                     return;
                 }
 
-                if(location.getText().toString().equals("")){
-                    location.setError("Please Don't leave this Field Empty ");
-                    location.findFocus();
+
+
+                if(!phone.getText().toString().equals("")){
+                    Phone= phone.getText().toString();
+
+
+
+                }
+                else {
+                    phone.setError("Please Enter Your Phone Number  ");
+                    phone.requestFocus();
+                    return;
+
+                }
+
+
+                if(Phone.length()<10 || Phone.length()>10){
+                    phone.setError("Please Enter Your Phone Number Correctly ");
+                    phone.requestFocus();
                     return;
                 }
+
+
+//                if(city.getText().toString().equals("")){
+//                    city.setError("Please Don't leave this Field Empty ");
+//                    city.findFocus();
+//                    return;
+//                }
 
                 if(phone.getText().toString().equals("")){
                     phone.setError("Please Don't leave this Field Empty ");
@@ -130,15 +159,16 @@ imageView_user.setOnClickListener(new View.OnClickListener() {
 
                 final String Uname = name.getText().toString();
                 final String Ulname = lname.getText().toString();
-                final String Ulocation = location.getText().toString();
+//                final String Ulocation = city.getText().toString();
                 final String Uphone = phone.getText().toString();
+                final String Ucity = location.getSelectedItem().toString();
 
 
 
 
                 FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("fname").setValue(Uname);
                 FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("lname").setValue(Ulname);
-                FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("city").setValue(Ulocation);
+                FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("city").setValue(Ucity);
                 FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("phoneNumber").setValue(Uphone);
                 FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("imageurl").setValue(url_photo);
 
