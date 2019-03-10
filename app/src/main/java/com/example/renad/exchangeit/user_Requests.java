@@ -3,21 +3,30 @@ package com.example.renad.exchangeit;
 public class user_Requests {
 
 int id ;
-User initial_user , recive_user;
-Product initial_product , recive_product ;
-
+String initial_user , recive_user;
+String initial_product , recive_product ;
+String status ;
 public user_Requests(){
 
 }
 
 
 
-    public user_Requests(int id, User initial_user, User recive_user, Product initial_product, Product recive_product) {
+    public user_Requests(int id, String initial_user, String recive_user, String initial_product, String recive_product , String s) {
         this.id = id;
         this.initial_user = initial_user;
         this.recive_user = recive_user;
         this.initial_product = initial_product;
         this.recive_product = recive_product;
+        status = s;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getId() {
@@ -28,35 +37,35 @@ public user_Requests(){
         this.id = id;
     }
 
-    public User getInitial_user() {
+    public String getInitial_user() {
         return initial_user;
     }
 
-    public void setInitial_user(User initial_user) {
+    public void setInitial_user(String initial_user) {
         this.initial_user = initial_user;
     }
 
-    public User getRecive_user() {
+    public String getRecive_user() {
         return recive_user;
     }
 
-    public void setRecive_user(User recive_user) {
+    public void setRecive_user(String recive_user) {
         this.recive_user = recive_user;
     }
 
-    public Product getInitial_product() {
+    public String getInitial_product() {
         return initial_product;
     }
 
-    public void setInitial_product(Product initial_product) {
+    public void setInitial_product(String initial_product) {
         this.initial_product = initial_product;
     }
 
-    public Product getRecive_product() {
+    public String getRecive_product() {
         return recive_product;
     }
 
-    public void setRecive_product(Product recive_product) {
+    public void setRecive_product(String recive_product) {
         this.recive_product = recive_product;
     }
 }
