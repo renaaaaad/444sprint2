@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:layout_weight="1"
-                        android:background="@drawable/border"
+                        android:background="@drawable/buttonborder"
                         android:text="Arrived Requests"
                         android:textColor="@color/GhostWhite" />
 
@@ -62,7 +62,7 @@
                         android:layout_width="113dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/border"
+                        android:background="@drawable/buttonborder"
                         android:text="My Requests"
                         android:textColor="@color/GhostWhite" />
                 </LinearLayout>

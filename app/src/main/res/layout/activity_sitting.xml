@@ -196,7 +196,7 @@
 
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bottun_design"
+                    android:background="@drawable/buttonborder"
                     android:text="Update"
                     android:textColor="@color/GhostWhite"
                     android:textSize="18sp"
@@ -213,7 +213,7 @@
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bottun_design"
+                    android:background="@drawable/buttonborder"
                     android:text="Cancle"
                     android:textColor="@color/GhostWhite"
                     android:textSize="18sp"
