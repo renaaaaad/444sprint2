@@ -14,7 +14,7 @@ public class User {
 private int requests  ;
 int recive_request ;
 
-    private int Counter ;
+    private int number ;
 
 
 public User(){
@@ -32,7 +32,7 @@ public User(){
         type =t;
 requests = r ;
 this.recive_request = recive_request ;
-        Counter = num;
+        number = num;
 
     }
 
@@ -130,11 +130,11 @@ this.recive_request = recive_request ;
 
 
     public int getCounter() {
-        return Counter;
+        return number;
     }
 
     public void setCounter(int counter) {
-        Counter = counter;
+        number = counter;
     }
 }// the class
 
