@@ -49,9 +49,10 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".requst_page_displayProducts" />
-        <activity android:name=".compleate_requests"
-            android:parentActivityName = ".requst_page_displayProducts"
-            ></activity>
+        <activity
+            android:name=".compleate_requests"
+            android:parentActivityName=".requst_page_displayProducts" />
+        <activity android:name=".requestDetaile"></activity>
     </application>
 
 </manifest>

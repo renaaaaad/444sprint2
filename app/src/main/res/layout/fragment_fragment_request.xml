@@ -5,72 +5,96 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment_request"
+    android:background="@color/White"
     >
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp">
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/constrain"
+
+        <LinearLayout
+            android:id="@+id/parent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="-19dp"
-            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="1.0"
+            tools:style="@android:style/Animation.InputMethod">
 
             <LinearLayout
-                android:id="@+id/parent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
-                tools:style="@android:style/Animation.InputMethod">
+                android:layout_margin="0dp"
+                android:background="@color/Snow"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/button10"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="113dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/buttonborder"
+                    android:text="Arrived Requests"
+                    android:textColor="@color/GhostWhite" />
 
-                    <Button
-                        android:id="@+id/button10"
-                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                        android:layout_width="113dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/buttonborder"
-                        android:text="Arrived Requests"
-                        android:textColor="@color/GhostWhite" />
-
-                    <Button
-                        android:id="@+id/button11"
-                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                        android:layout_width="113dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/buttonborder"
-                        android:text="My Requests"
-                        android:textColor="@color/GhostWhite" />
-                </LinearLayout>
-
+                <Button
+                    android:id="@+id/button11"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="113dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/buttonborder"
+                    android:text="My Requests"
+                    android:textColor="@color/GhostWhite" />
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="You Don't Have Any Arrived Request's !"
+                android:textAlignment="center"
+                android:textColor="@color/Snow"
+                android:textSize="16sp"
+                android:visibility="invisible" />
 
-        </android.support.constraint.ConstraintLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleRequest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"></android.support.v7.widget.RecyclerView>
+
+
+        </LinearLayout>
+
+
     </ScrollView>
 
 </FrameLayout>
