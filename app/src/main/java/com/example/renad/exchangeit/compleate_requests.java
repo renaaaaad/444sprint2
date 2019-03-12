@@ -30,6 +30,7 @@ String userid ;
 String eID ;
 TextView textView ,back  ;
 String p_number ;
+String intiate_path , recive_path , intiate_name , p_name2 , p_des2 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,13 +65,33 @@ final  String user_Exchange_product = intent.getStringExtra("exchane_product") ;
         FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
         SharedPreferences perfs=getApplicationContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE);
          userid=user.getUid();
+
+        DatabaseReference reference12 = FirebaseDatabase.getInstance().getReference("Users").child(userid);
+        reference12.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                intiate_name = dataSnapshot.child("fname").getValue().toString()+" "+dataSnapshot.child("lname").getValue().toString() ;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+         //--------------
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(userid).child("Products");
         reference.child(pName).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                String url_photo = dataSnapshot.child("path").getValue().toString();
+                intiate_path = url_photo ;
             Glide.with(getApplicationContext()).load(url_photo).into(myProduct);
+                p_name2 = dataSnapshot.child("name").getValue().toString();
+                p_des2 = dataSnapshot.child("discription").getValue().toString() ;
             }
 
             @Override
@@ -110,15 +131,19 @@ final  String user_Exchange_product = intent.getStringExtra("exchane_product") ;
                                 String url_photo = dataSnapshot.child("path").getValue().toString();
                                 Glide.with(getApplicationContext()).load(url_photo).into(exchange_product);
 
+                                recive_path = url_photo;
+
                                 DatabaseReference reference10 = FirebaseDatabase.getInstance().getReference("Users").child(eID);
                                 reference10.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                         String url_photo2 = dataSnapshot.child("imageurl").getValue().toString();
                                         Glide.with(getApplicationContext()).load(url_photo2).into(userr);
+
                                         String nname = dataSnapshot.child("fname").getValue().toString();
                                         String lnname = dataSnapshot.child("lname").getValue().toString();
                                         textView.setText(nname+" "+lnname);
+
                                     }
 
                                     @Override
@@ -176,7 +201,8 @@ Confirm_button.setOnClickListener(new View.OnClickListener() {
                 requestInt++;
                 String requestString2  = Integer.toString(requestInt);
                 FirebaseDatabase.getInstance().getReference("Users").child(userid).child("requests").setValue(requestString2);
-  user_Requests user_requests = new user_Requests(requestInt,userid,eID,pName,p_number,"Waiting") ;
+                requestProductDetails requestProductDetails = new requestProductDetails(intiate_path,recive_path,intiate_name,p_name2,p_des2);
+  user_Requests user_requests = new user_Requests(requestInt,userid,eID,pName,p_number,"Waiting",requestProductDetails) ;
                 FirebaseDatabase.getInstance().getReference("Users").child(userid).child("Initiate_requests").child(requestString2).setValue(user_requests);
 // for the second user
 
@@ -190,7 +216,9 @@ reference8.addListenerForSingleValueEvent(new ValueEventListener() {
         requestInt2++;
         String requestString3  = Integer.toString(requestInt2);
         FirebaseDatabase.getInstance().getReference("Users").child(eID).child("Receive_requestsNum").setValue(requestString3);
-        user_Requests user_requests = new user_Requests(requestInt2,userid,eID,pName,p_number,"Waiting") ;
+        requestProductDetails requestProductDetails2 = new requestProductDetails(intiate_path,recive_path,intiate_name,p_name2,p_des2);
+
+        user_Requests user_requests = new user_Requests(requestInt2,userid,eID,pName,p_number,"Waiting",requestProductDetails2) ;
         FirebaseDatabase.getInstance().getReference("Users").child(eID).child("requestsReceive").child(requestString3).setValue(user_requests);
     }
 

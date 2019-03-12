@@ -6,19 +6,22 @@ int id ;
 String initial_user , recive_user;
 String initial_product , recive_product ;
 String status ;
+    requestProductDetails requestProductDetails ;
+
 public user_Requests(){
 
 }
 
 
 
-    public user_Requests(int id, String initial_user, String recive_user, String initial_product, String recive_product , String s) {
+    public user_Requests(int id, String initial_user, String recive_user, String initial_product, String recive_product , String s , requestProductDetails request ) {
         this.id = id;
         this.initial_user = initial_user;
         this.recive_user = recive_user;
         this.initial_product = initial_product;
         this.recive_product = recive_product;
         status = s;
+        requestProductDetails = request ;
     }
 
     public String getStatus() {
@@ -67,5 +70,13 @@ public user_Requests(){
 
     public void setRecive_product(String recive_product) {
         this.recive_product = recive_product;
+    }
+
+    public com.example.renad.exchangeit.requestProductDetails getRequestProductDetails() {
+        return requestProductDetails;
+    }
+
+    public void setRequestProductDetails(com.example.renad.exchangeit.requestProductDetails requestProductDetails) {
+        this.requestProductDetails = requestProductDetails;
     }
 }

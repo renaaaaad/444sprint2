@@ -132,7 +132,7 @@ String id ;
             @Override
             public void onClick(View v) {
                 // delete from the init user
-                DatabaseReference reference5 = FirebaseDatabase.getInstance().getReference("Users").child(int_prod).child("Products");
+                DatabaseReference reference5 = FirebaseDatabase.getInstance().getReference("Users").child(int_user).child("Products");
                 reference5.child(int_prod).removeValue();
 
                 // delete from the rec user
@@ -140,8 +140,10 @@ String id ;
                 reference6.child(rec_prod).removeValue();
 
                 //delete from the products
+           FirebaseDatabase.getInstance().getReference("Products").child(pname22+rec_user).removeValue();
+                FirebaseDatabase.getInstance().getReference("Products").child(pname2+int_user).removeValue();
 
-               // ----------------------------------------------------------------------------------
+                // ----------------------------------------------------------------------------------
 
 
 //FirebaseDatabase.getInstance().getReference("Users").child(int_prod).child("Initiate_requests").child(id).setValue("Accepted");
