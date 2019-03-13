@@ -24,7 +24,7 @@
             android:layout_height="165dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/h2"
-            app:layout_constraintBottom_toBottomOf="@+id/name"
+            app:layout_constraintBottom_toBottomOf="@+id/status"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.571"
             app:layout_constraintStart_toStartOf="parent"

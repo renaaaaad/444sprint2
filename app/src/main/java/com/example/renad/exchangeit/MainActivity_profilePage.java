@@ -1,6 +1,5 @@
 package com.example.renad.exchangeit;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,7 +14,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -68,7 +66,7 @@ public class MainActivity_profilePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_profile_page);
-        name_text = (TextView)findViewById(R.id.name);
+        name_text = (TextView)findViewById(R.id.status);
 city2 =        (TextView)findViewById(R.id.city);
 
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();

@@ -11,8 +11,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
-
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +35,7 @@ RecyclerView recyclerView ;
     loadRequestsAdapter  loadRequestsAdapter ;
     List<user_Requests> user_requests ;
     TextView textView ;
+    Button myRequests ;
     String requests_rec ;
     public fragment_request() {
         // Required empty public constructor
@@ -46,11 +49,13 @@ RecyclerView recyclerView ;
         // Inflate the layout for this fragment
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
         String userid=user.getUid();
-
         View view = inflater.inflate(R.layout.fragment_fragment_request, container, false);
-        recyclerView=(RecyclerView)view.findViewById(R.id.recycleRequest);
+        myRequests = view.findViewById(R.id.button11);
+
+                recyclerView=(RecyclerView)view.findViewById(R.id.recycleRequest);
+                recyclerView.setNestedScrollingEnabled(true);
         textView = (TextView)view.findViewById(R.id.textView11);
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(false);
         LinearLayoutManager linearLayoutManager1= new GridLayoutManager(getContext(),1);
         recyclerView.setLayoutManager(linearLayoutManager1);
         user_requests =new ArrayList<>();
@@ -59,7 +64,18 @@ RecyclerView recyclerView ;
 myRequests(userid);
 
 
-
+myRequests.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Fragment fragment = new myRequests();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+        return;
+    }
+});
 
 
         return view;
