@@ -100,7 +100,7 @@ return view ;
 
                         int size = user_requests.size();
                         for (int i =0 ; i<size;i++) {
-                            LinearLayout linearLayout2 = new LinearLayout(getContext());
+                            final LinearLayout linearLayout2 = new LinearLayout(getContext());
                             linearLayout2.setOrientation(LinearLayout.HORIZONTAL);
                             LinearLayout linearLayout3 = new LinearLayout(getContext());
                             linearLayout3.setOrientation(LinearLayout.VERTICAL);
@@ -135,10 +135,84 @@ final TextView phonenumber = new TextView(getContext());
                                     DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("Users").child(me);
                                     reference2.child("Initiate_requests").child(id2).addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
-                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
+ //-------------
                                             status.setText(dataSnapshot.child("status").getValue().toString());
-                                          
-status2 = dataSnapshot.child("status").getValue().toString();
+                                            if (dataSnapshot.child("status").getValue().toString().equals("Accepted")) {
+                                                linearLayout2.setOnTouchListener(new View.OnTouchListener() {
+                                                    @Override
+                                                    public boolean onTouch(View v, MotionEvent event) {
+                                                        boolean returnValue = true;
+
+                                                        if (event.getAction() == MotionEvent.ACTION_UP) { //on touch release
+                                                            Intent intent;
+
+                                                            returnValue = false; //prevent default action on release
+                                                            intent = new Intent(getContext(), AcceptedRequest.class);
+                                                            String int_user = user_requests2.getInitial_user();
+                                                            String int_prod = user_requests2.getInitial_product();
+                                                            String rec_user = user_requests2.getRecive_user();
+                                                            String rec_prod = user_requests2.getRecive_product();
+                                                            int id = user_requests2.getId();
+                                                            String id2 = Integer.toString(id);
+
+                                                            requestProductDetails requestProductDetails2 = user_requests2.getRequestProductDetails();
+                                                            intent.putExtra("pro_intiate", requestProductDetails2.getIntiate_path());
+                                                            intent.putExtra("pro_des", requestProductDetails2.getP_des());
+                                                            intent.putExtra("pro_name", requestProductDetails2.getP_name());
+                                                            intent.putExtra("pro_recive", requestProductDetails2.getRecive_path());
+                                                            intent.putExtra("pro_user", requestProductDetails2.getRecive_name());
+                                                            intent.putExtra("id", int_user);
+                                                            startActivity(intent);
+
+                                                        }
+                                                        ;
+
+
+                                                        return returnValue;
+                                                    }
+
+                                                });
+                                            }
+
+                                            if (!(dataSnapshot.child("status").getValue().toString().equals("Accepted"))) {
+                                                linearLayout2.setOnTouchListener(new View.OnTouchListener() {
+                                                    @Override
+                                                    public boolean onTouch(View v, MotionEvent event) {
+                                                        boolean returnValue = true;
+
+                                                        if (event.getAction() == MotionEvent.ACTION_UP) { //on touch release
+                                                            Intent intent;
+
+                                                            returnValue = false; //prevent default action on release
+                                                            intent = new Intent(getContext(), reviewMyRequests.class);
+                                                            String int_user = user_requests2.getInitial_user();
+                                                            String int_prod = user_requests2.getInitial_product();
+                                                            String rec_user = user_requests2.getRecive_user();
+                                                            String rec_prod = user_requests2.getRecive_product();
+                                                            int id = user_requests2.getId();
+                                                            String id2 = Integer.toString(id);
+
+                                                            requestProductDetails requestProductDetails2 = user_requests2.getRequestProductDetails();
+                                                            intent.putExtra("pro_intiate", requestProductDetails2.getIntiate_path());
+                                                            intent.putExtra("pro_des", requestProductDetails2.getP_des());
+                                                            intent.putExtra("pro_name", requestProductDetails2.getP_name());
+                                                            intent.putExtra("pro_recive", requestProductDetails2.getRecive_path());
+                                                            intent.putExtra("pro_user", requestProductDetails2.getRecive_name());
+                                                            intent.putExtra("id", int_user);
+                                                            startActivity(intent);
+
+                                                        }
+                                                        ;
+
+
+                                                        return returnValue;
+                                                    }
+
+                                                });
+                                            }
+//--------------------
+//status2 = dataSnapshot.child("status").getValue().toString();
                                             if ((dataSnapshot.child("status").getValue().toString()).equals("Accepted")){
                                                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
                                                 reference.child(recive).addListenerForSingleValueEvent(new ValueEventListener() {
