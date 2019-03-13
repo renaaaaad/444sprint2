@@ -59,7 +59,7 @@ public class search_item_product extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(search_item_product.this, Seartch_Page.class);
+                Intent i = new Intent(search_item_product.this, MainActivity_profilePage.class);
                 startActivity(i);
             }
         });

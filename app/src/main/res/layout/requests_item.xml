@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardBackgroundColor="#FFFFFF"
-    app:contentPadding="10dp">
+    app:contentPadding="10dp"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
