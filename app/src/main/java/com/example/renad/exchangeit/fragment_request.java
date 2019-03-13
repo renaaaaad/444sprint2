@@ -50,6 +50,11 @@ RecyclerView recyclerView ;
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
         String userid=user.getUid();
         View view = inflater.inflate(R.layout.fragment_fragment_request, container, false);
+
+        recyclerView=(RecyclerView)view.findViewById(R.id.recycleRequest);
+
+        textView = (TextView)view.findViewById(R.id.textView11);
+
         myRequests = view.findViewById(R.id.button11);
 
                 recyclerView=(RecyclerView)view.findViewById(R.id.recycleRequest);
@@ -57,13 +62,16 @@ RecyclerView recyclerView ;
         textView = (TextView)view.findViewById(R.id.textView11);
         recyclerView.setHasFixedSize(false);
         LinearLayoutManager linearLayoutManager1= new GridLayoutManager(getContext(),1);
+
         recyclerView.setLayoutManager(linearLayoutManager1);
+
         user_requests =new ArrayList<>();
+
         loadRequestsAdapter=new loadRequestsAdapter(getContext(),user_requests);
+
+
         recyclerView.setAdapter(loadRequestsAdapter);
-myRequests(userid);
-
-
+         myRequests(userid);
 myRequests.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {

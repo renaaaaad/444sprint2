@@ -52,6 +52,7 @@
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="113dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"/>
                 android:layout_marginBottom="0dp"
                 android:layout_marginEnd="0dp"
                 android:layout_marginLeft="0dp"
