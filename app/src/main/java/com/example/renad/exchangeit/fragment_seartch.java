@@ -3,17 +3,14 @@ package com.example.renad.exchangeit;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -75,7 +72,7 @@ public class fragment_seartch extends Fragment {
 
         View view=inflater.inflate(R.layout.fragment_fragment_seartch, container, false);
 
-        name_text = (TextView)view.findViewById(R.id.name);
+        name_text = (TextView)view.findViewById(R.id.status);
         city2 =        (TextView)view.findViewById(R.id.city);
 
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();

@@ -2,16 +2,11 @@ package com.example.renad.exchangeit.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,12 +14,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.renad.exchangeit.AcceptedRequest;
-import com.example.renad.exchangeit.Product;
 import com.example.renad.exchangeit.R;
 import com.example.renad.exchangeit.SquareimageView;
 import com.example.renad.exchangeit.SystemProduct;
-import com.example.renad.exchangeit.fragment.ProductDetailsFragment;
-import com.example.renad.exchangeit.itemProduct;
 import com.example.renad.exchangeit.requestDetaile;
 import com.example.renad.exchangeit.requestProductDetails;
 import com.example.renad.exchangeit.user_Requests;
@@ -50,8 +42,8 @@ TextView name , String_status , phonenumber ;
 private String id_image;
 ImageView button ;
 String status2 ;
-
-
+String name2 , status3 , phone;
+    user_Requests user_requests ;
     public loadRequestsAdapter(Context context, List<user_Requests> mPosts) {
         this.context = context;
         this.mPosts = mPosts;
@@ -64,7 +56,7 @@ String status2 ;
         phonenumber = view.findViewById(R.id.phoneNumber);
         String_status = view.findViewById(R.id.status);
        imageView = view.findViewById(R.id.product_image);
-        name = view.findViewById(R.id.name);
+        name = view.findViewById(R.id.status);
 
         return new loadRequestsAdapter.ViewHolder(view);
 
@@ -81,6 +73,7 @@ String status2 ;
         user_Requests user_requests = mPosts.get(i);
 
 
+         user_requests = mPosts.get(i);
 
         initiate_user = user_requests.getInitial_user();
         recive_user = user_requests.getRecive_user();
@@ -89,15 +82,11 @@ String status2 ;
         recive_producr = user_requests.getRecive_product();
         getInitiate_product = user_requests.getInitial_product();
 
-
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
         reference.child(initiate_user).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-    String fname = dataSnapshot.child("fname").getValue().toString();
-  String lname = dataSnapshot.child("lname").getValue().toString();
-  String fullname = fname+" "+lname ;
-                name.setText(fullname);
+
       // we get the id of the request to get it is status
       String idString = Integer.toString(id_request);
  DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("Users").child(initiate_user).child("Initiate_requests");
@@ -106,6 +95,7 @@ String status2 ;
      public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
          String_status.setText("Status : "+dataSnapshot.child("status").getValue().toString());
          status2 = dataSnapshot.child("status").getValue().toString() ;
+         status3 = status2 ;
          if(status2.equals("Accepted")){
 
              DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
@@ -130,12 +120,17 @@ String status2 ;
      }
  });// the end if status
                 // load image
+
+
     String img =   dataSnapshot.child("imageurl").getValue().toString();
+                String fname = dataSnapshot.child("fname").getValue().toString();
+                String lname = dataSnapshot.child("lname").getValue().toString();
+                String fullname = fname+" "+lname ;
+                name.setText(fullname);
+
   Glide.with(context).load(img).into(viewHolder.imageView);
 
-
-
-
+//0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
             }// on data change
 
             @Override
@@ -157,19 +152,22 @@ String status2 ;
         public SquareimageView post_image;
         public ImageView imageView;
 
+
         public ViewHolder(final View itemView) {
             super(itemView);
             final user_Requests user_requests ;
 
-/////
+/////-----------------------------------------------------------------------------------------------
             imageView = itemView.findViewById(R.id.product_image);
             phonenumber = itemView.findViewById(R.id.phoneNumber);
             String_status = itemView.findViewById(R.id.status);
            imageView = itemView.findViewById(R.id.product_image);
             name = itemView.findViewById(R.id.name);
 
-/////
+
+/////-----------------------------------------------------------------------------------------------
             // to go to detail page
+
             button = itemView.findViewById(R.id.img);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -180,6 +178,7 @@ String status2 ;
 
                     user_Requests user_requests1 = mPosts.get(position);
 String status3 = user_requests1.getStatus() ;
+
 
                     if(status3.equals("Accepted"))
                     {
@@ -201,7 +200,7 @@ String status3 = user_requests1.getStatus() ;
 
 
                         context.startActivity(intent);
-return;
+                          return;
                     }
 
 
@@ -227,36 +226,5 @@ context.startActivity(intent);
         }
     }
 
-//    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
-//                reference.child(initiate_user).addListenerForSingleValueEvent(new ValueEventListener() {
-//        @Override
-//        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//            // the name
-//            String fname = dataSnapshot.child("fname").getValue().toString();
-//            String lname = dataSnapshot.child("lname").getValue().toString();
-//            name.setText(fname+" "+lname);
-//            // the status
-//            String idString = Integer.toString(id_request);
-//            DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("Users").child(initiate_user);
-//            reference2.child(idString).addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                    String path =  dataSnapshot.child("path").getValue().toString();
-//                    Glide.with(context).load(path).into(imageView);
-//                }
-//
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                }
-//            });
-//
-//        }
-//
-//        @Override
-//        public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//        }
-//    });
+
 }

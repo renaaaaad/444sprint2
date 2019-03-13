@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AcceptedRequest"></activity>
+        <activity android:name=".AcceptedRequest" />
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
         <activity android:name=".search_item_product" />
         <activity
             android:name=".First_page"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity android:name=".registerPage" />
         <activity android:name=".MainActivity_profilePage" />
         <activity
@@ -53,6 +53,7 @@
             android:name=".compleate_requests"
             android:parentActivityName=".requst_page_displayProducts" />
         <activity android:name=".requestDetaile" />
+        <activity android:name=".reviewMyRequests"></activity>
     </application>
 
 </manifest>
