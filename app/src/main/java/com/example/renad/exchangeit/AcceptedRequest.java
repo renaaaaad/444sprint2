@@ -5,6 +5,7 @@ import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +20,8 @@ public class AcceptedRequest extends AppCompatActivity {
     String rec_user , rec_prod , int_prod , int_user , id3 ;
     ImageView prduct1 , prduct2 , profile;
     TextView name , productName , productDis;
+    TextView backbtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +34,14 @@ public class AcceptedRequest extends AppCompatActivity {
         name = (TextView)findViewById(R.id.user_name) ;
         productName = (TextView)findViewById(R.id.product_name) ;
         productDis = (TextView)findViewById(R.id.poduct_des) ;
+        backbtn=(TextView) findViewById(R.id.back11);
 
-        android.support.v7.widget.Toolbar toolbar=findViewById(R.id.toolbar2);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Go Back");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setTitleTextColor(0xFFFFFFFF);
-        toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.White), PorterDuff.Mode.SRC_ATOP);
+//        android.support.v7.widget.Toolbar toolbar=findViewById(R.id.toolbar2);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setTitle("Go Back");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        toolbar.setTitleTextColor(0xFFFFFFFF);
+//        toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.White), PorterDuff.Mode.SRC_ATOP);
 
         Intent intent =getIntent();
 
@@ -66,7 +70,13 @@ public class AcceptedRequest extends AppCompatActivity {
         });
 
 
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),MainActivity_profilePage.class));
 
+            }
+        });
 
 
 

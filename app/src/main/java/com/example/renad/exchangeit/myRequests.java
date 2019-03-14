@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -47,6 +50,7 @@ public class myRequests extends Fragment {
     String requests_rec ;
     LinearLayout layout_big ;
     String status2  ;
+    Button Arribtn;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,6 +66,25 @@ layout_big.setOrientation(LinearLayout.VERTICAL);
         textView = (TextView)view.findViewById(R.id.textView11);
 
         LinearLayoutManager linearLayoutManager1= new GridLayoutManager(getContext(),1);
+
+
+
+
+
+
+        Arribtn=(Button)view.findViewById(R.id.button10);
+        Arribtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new fragment_request();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frame_container, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                return;
+            }
+        });
 
         user_requests =new ArrayList<>();
         myRequests(userid);
@@ -184,6 +207,8 @@ final TextView phonenumber = new TextView(getContext());
                                                         if (event.getAction() == MotionEvent.ACTION_UP) { //on touch release
                                                             Intent intent;
 
+
+
                                                             returnValue = false; //prevent default action on release
                                                             intent = new Intent(getContext(), reviewMyRequests.class);
                                                             String int_user = user_requests2.getInitial_user();
@@ -200,6 +225,14 @@ final TextView phonenumber = new TextView(getContext());
                                                             intent.putExtra("pro_recive", requestProductDetails2.getRecive_path());
                                                             intent.putExtra("pro_user", requestProductDetails2.getRecive_name());
                                                             intent.putExtra("id", int_user);
+
+
+                                                            intent.putExtra("int_user", int_user);
+                                                            intent.putExtra("int_prod", int_prod);
+                                                            intent.putExtra("rec_user", rec_user);
+                                                            intent.putExtra("rec_prod", rec_prod);
+
+
                                                             startActivity(intent);
 
                                                         }

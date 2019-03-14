@@ -31,7 +31,8 @@ public class search_item_product extends AppCompatActivity {
     String new_id ;
     TextView name_item , discription_item , user,catigory_item;
     ImageView item_image ;
-    Button back , request ;
+    Button  request ;
+    TextView backbtn;
     ImageView image_profile;
     String nameProduct ;
     String product_nname ;
@@ -43,7 +44,7 @@ public class search_item_product extends AppCompatActivity {
         name_item = (TextView)findViewById(R.id.item_name) ;
         discription_item = (TextView)findViewById(R.id.item_discription) ;
         item_image = (ImageView)findViewById(R.id.imageView3);
-        back = (Button)findViewById(R.id.back_search);
+        backbtn = (TextView) findViewById(R.id.back11);
         request = (Button)findViewById(R.id.request_serch);
         image_profile=findViewById(R.id.product_image);
         catigory_item=findViewById(R.id.category_);
@@ -56,7 +57,7 @@ public class search_item_product extends AppCompatActivity {
 // to get the item information
 
         ////// back btn
-        back.setOnClickListener(new View.OnClickListener() {
+        backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(search_item_product.this, MainActivity_profilePage.class);

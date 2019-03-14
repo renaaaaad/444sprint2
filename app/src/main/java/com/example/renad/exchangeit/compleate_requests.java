@@ -29,6 +29,8 @@ ImageView myProduct , exchange_product , userr;
 String userid ;
 String eID ;
 TextView textView ,back  ;
+    TextView backbtn;
+
 String p_number ;
 String intiate_path , recive_path , intiate_name , p_name2 , p_des2 ;
     @Override
@@ -36,12 +38,6 @@ String intiate_path , recive_path , intiate_name , p_name2 , p_des2 ;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compleate_requests);
 
-        Toolbar toolbar=findViewById(R.id.toolBar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Back");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setTitleTextColor(0xFFFFFFFF);
-        toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.White), PorterDuff.Mode.SRC_ATOP);
 
 
 
@@ -50,6 +46,7 @@ String intiate_path , recive_path , intiate_name , p_name2 , p_des2 ;
         exchange_product = (ImageView)findViewById(R.id.exchange) ;
 textView = (TextView)findViewById(R.id.product_name) ;
         cancel = (Button)findViewById(R.id.homePage) ;
+        backbtn = (TextView) findViewById(R.id.back11);
 
          // fill the images
         Intent intent = getIntent();
@@ -59,7 +56,13 @@ final String user_exchange = intent.getStringExtra("userToExchangeWith"); // the
 
 final  String user_Exchange_product = intent.getStringExtra("exchane_product") ; // to get the product I want to exchange with  ;
 
-
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(compleate_requests.this, MainActivity_profilePage.class);
+                startActivity(i);
+            }
+        });
 
         // get the user
         FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();

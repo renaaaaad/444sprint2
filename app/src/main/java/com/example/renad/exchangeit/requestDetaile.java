@@ -29,6 +29,8 @@ TextView name , productName , productDis;
 Button accept , reject ;
 String pname2 , pname22;
 String id ;
+TextView backbtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,15 +44,18 @@ String id ;
         productDis = (TextView)findViewById(R.id.poduct_des) ;
         accept = (Button)findViewById(R.id.accept);
         reject = (Button) findViewById(R.id.reject);
+        backbtn=(TextView) findViewById(R.id.back11);
 
 
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),MainActivity_profilePage.class));
 
-        android.support.v7.widget.Toolbar toolbar=findViewById(R.id.toolbar2);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Go Back");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setTitleTextColor(0xFFFFFFFF);
-        toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.White), PorterDuff.Mode.SRC_ATOP);
+            }
+        });
+
+
 
         Intent intent = getIntent() ;
         rec_prod = intent.getStringExtra("rec_prod");
