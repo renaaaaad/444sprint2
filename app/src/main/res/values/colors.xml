@@ -9,7 +9,7 @@
 
     <color name="White">#FFFFFF</color>
     <color name="Ivory">#860838</color>
-    <color name="LightYellow">#FFFFE0</color>
+    <color name="LightYellow">#055810</color>
     <color name="Yellow">#FFFF00</color>
     <color name="Snow">#221a10</color>
     <color name="FloralWhite">#FFFAF0</color>
@@ -134,7 +134,7 @@
     <color name="Aqua">#00FFFF</color>
     <color name="Cyan">#00FFFF</color>
     <color name="SpringGreen">#00FF7F</color>
-    <color name="Lime">#00FF00</color>
+    <color name="Lime">#B4B4B4</color>
     <color name="MediumSpringGreen">#00FA9A</color>
     <color name="DarkTurquoise">#00CED1</color>
     <color name="DeepSkyBlue">#00BFFF</color>
@@ -289,5 +289,7 @@
         <item name="DarkBlue">@color/DarkBlue</item>
         <item name="Navy">@color/Navy</item>
         <item name="Black">@color/Black</item>
+
+
     </array>
 </resources>

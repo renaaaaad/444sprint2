@@ -77,6 +77,7 @@ String userid ;
         textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_search, 0, 0, 0);
 
 
+
         myFotos();
 return view;
 

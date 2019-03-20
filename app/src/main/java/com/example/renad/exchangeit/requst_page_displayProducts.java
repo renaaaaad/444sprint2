@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.renad.exchangeit.Adapter.Adapter_listProduct_request;
 import com.example.renad.exchangeit.Adapter.MyFotoAdapter;
@@ -32,6 +34,7 @@ public class requst_page_displayProducts extends AppCompatActivity {
     List<Product> productList;
 String user_ID ;
     FirebaseUser firebaseUser;
+    TextView backbtn;
 
     private myPHotoAdapter myPHotoAdapter ;
     private List<Product> list_product ;
@@ -53,7 +56,15 @@ String user_product ;
 Intent intent = getIntent();
         user_ID_exchanged = intent.getStringExtra("product_user");
         user_product = intent.getStringExtra("product_name");
+        backbtn = (TextView) findViewById(R.id.back11);
 
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(requst_page_displayProducts.this, MainActivity_profilePage.class);
+                startActivity(i);
+            }
+        });
 
         //show product
 
