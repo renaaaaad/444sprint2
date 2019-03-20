@@ -210,6 +210,70 @@ startActivity(new Intent(getApplicationContext(),MainActivity_profilePage.class)
         });
 
 
+
+        reject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                DatabaseReference reference10 = FirebaseDatabase.getInstance().getReference("Users").child(int_user).child("Initiate_requests");
+                reference10.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                            String int_prod2 = ds.child("initial_product").getValue().toString();
+                            String int_user2 = ds.child("initial_user").getValue().toString();
+                            String rec_user2 = ds.child("recive_user").getValue().toString();
+                            String rec_prod2 = ds.child("recive_product").getValue().toString();
+                            String ii =  ds.child("id").getValue().toString();
+
+                            if((int_prod2.equals(int_prod))&&(int_user2.equals(int_user))&&(rec_user2.equals(rec_user))&&(rec_prod2.equals(rec_prod))){
+                                FirebaseDatabase.getInstance().getReference("Users").child(int_user).child("Initiate_requests").child(ii).child("status").setValue("Reject");
+                                return;
+                            }
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+//-----------------------------------------------------------------------------------------------------------------------
+                DatabaseReference reference9 = FirebaseDatabase.getInstance().getReference("Users").child(rec_user).child("requestsReceive");
+                reference9.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                            String int_prod2 = ds.child("initial_product").getValue().toString();
+                            String int_user2 = ds.child("initial_user").getValue().toString();
+                            String rec_user2 = ds.child("recive_user").getValue().toString();
+                            String rec_prod2 = ds.child("recive_product").getValue().toString();
+                            String ii =  ds.child("id").getValue().toString();
+
+                            if((int_prod2.equals(int_prod))&&(int_user2.equals(int_user))&&(rec_user2.equals(rec_user))&&(rec_prod2.equals(rec_prod))){
+                                FirebaseDatabase.getInstance().getReference("Users").child(rec_user).child("requestsReceive").child(ii).child("status").setValue("Reject");
+                                return;
+                            }
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                startActivity(new Intent(getApplicationContext(),MainActivity_profilePage.class));
+            }// on click
+        });
+
+
+
+
     }// on create
 
 

@@ -105,12 +105,12 @@ public class fragment_request extends Fragment {
 public void myRequests(final String id ) {
 
     DatabaseReference reference3=   FirebaseDatabase.getInstance().getReference("Users").child(id);
-    reference3.child("Receive_requestsNum").addListenerForSingleValueEvent(new ValueEventListener() {
+    reference3.addListenerForSingleValueEvent(new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
-            if (dataSnapshot.getValue().toString().equals("0")){
+            if (dataSnapshot.child("recive_request").getValue().toString().equals("0")){
                 textView.setVisibility(TextView.VISIBLE);
                 return;
             }
