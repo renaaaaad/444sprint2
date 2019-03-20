@@ -214,7 +214,7 @@ Confirm_button.setOnClickListener(new View.OnClickListener() {
 reference8.addListenerForSingleValueEvent(new ValueEventListener() {
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-        String requestString2  = dataSnapshot.child("Receive_requestsNum").getValue().toString();
+        String requestString2  = dataSnapshot.child("recive_request").getValue().toString();
         int requestInt2 = Integer.parseInt(requestString2);
         requestInt2++;
         String requestString3  = Integer.toString(requestInt2);
