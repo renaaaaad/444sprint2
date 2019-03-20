@@ -64,6 +64,7 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.SearchView
           Glide.with(context).load(productImgList.get(position)).into(holder.path);
         //Glide.with(context).load().placeholder(R.mipmap.ic_launcher_round).into(holder.path);
                //.asBitmap().placeholder(R.mipmap.ic_launcher_round).into(holder.path);
+
         holder.path.setClickable(true);
         holder.path.setOnClickListener(new View.OnClickListener() {
             @Override
