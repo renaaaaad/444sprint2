@@ -22,12 +22,12 @@
 
         <Button
             android:layout_marginStart="10dp"
-
+            android:background="@drawable/buttonborder"
+            android:textColor="@color/GhostWhite"
             android:id="@+id/editButton"
             android:layout_width="388dp"
             android:layout_height="65dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/border2"
             android:clickable="true"
             android:text="Edit Profile"
             android:textSize="18sp"
@@ -38,25 +38,28 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
+            android:layout_marginStart="10dp"
+            android:background="@drawable/buttonborder"
+            android:textColor="@color/GhostWhite"
             android:id="@+id/rest_password"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:layout_height="65dp"
-            android:layout_marginBottom="112dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/border2"
-            android:clickable="true"
             android:layout_width="388dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="30dp"
+            android:clickable="true"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+
 
             android:src="@drawable/profileavatar"
-            android:text="Reset Password"
+            android:text="RESET PASSWORD"
             android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
     </LinearLayout>

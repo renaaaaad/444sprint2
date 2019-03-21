@@ -142,6 +142,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 username.setText(user.getFname());
 
 
+
             }
 
             @Override

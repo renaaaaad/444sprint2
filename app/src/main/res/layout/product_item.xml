@@ -45,14 +45,16 @@
                     android:layout_height="match_parent"
                     android:text="Item name:"
                     android:textColor="@color/Black"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
 
                 <EditText
                     android:id="@+id/itemname"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:backgroundTint="@color/Black"
-                    android:shadowColor="@color/Black" />
+                    android:shadowColor="@color/Black"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -60,7 +62,8 @@
                     android:shadowColor="@color/Black"
                     android:text="Description:"
                     android:textColor="@color/Black"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    android:textStyle="bold"/>
 
                 <EditText
 
@@ -68,6 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
+
 
                     />
 
@@ -95,7 +99,7 @@
             android:layout_weight="1"
             android:layout_marginBottom="10dp"
 
-            android:background="@drawable/bottun_design"
+            android:background="@drawable/buttonborder"
             android:textColor="@color/GhostWhite"
 
 
@@ -114,7 +118,7 @@
             android:layout_weight="1"
             android:layout_marginBottom="10dp"
 
-            android:background="@drawable/bottun_design"
+            android:background="@drawable/buttonborder"
             android:textColor="@color/GhostWhite"
 
             />
@@ -132,7 +136,7 @@ android:layout_marginBottom="10dp"
             android:layout_height="42dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="@drawable/bottun_design"
+            android:background="@drawable/buttonborder"
 
             />
     </LinearLayout>

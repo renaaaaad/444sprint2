@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".fragment_profile"
     android:background="@color/White">
 
@@ -24,40 +24,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <TextView
-                android:fontFamily="sans-serif-medium"
-
-                android:layout_width="match_parent"
-                android:id="@+id/searchForProduct"
-                android:text=" Search"
-                android:layout_height="40dp"
-android:paddingTop="10dp"
-                android:background="@drawable/bottun_design"
-                android:textColor="@color/GhostWhite"
-                android:visibility="visible"
-                tools:background="@drawable/bottun_design"
-                tools:textSize="20sp"
-                />
-
-
 
             <FrameLayout
-                android:id="@+id/frame_container"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="0dp">
+                android:layout_height="wrap_content">
 
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycle_product"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"></android.support.v7.widget.RecyclerView>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/searchForProduct"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@color/Snow"
+                            android:fontFamily="sans-serif-medium"
+                            android:paddingTop="10dp"
+                            android:text=" Search"
+                            android:textColor="@color/GhostWhite"
+                            android:visibility="visible"
+                            tools:background="@drawable/bottun_design"
+                            tools:textSize="20sp" />
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycle_product"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
 
 
+                        ></android.support.v7.widget.RecyclerView>
+                </LinearLayout>
             </FrameLayout>
+
+
         </LinearLayout>
 
     </ScrollView>

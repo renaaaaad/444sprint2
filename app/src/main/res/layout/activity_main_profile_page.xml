@@ -6,14 +6,16 @@
     android:id="@+id/big"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="0dp"
     tools:context=".MainActivity_profilePage">
 
     <ScrollView
         android:id="@+id/scrollView2"
 
-        android:layout_width="431dp"
-        android:layout_height="626dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
+        android:layout_margin="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -30,6 +32,7 @@
                 android:id="@+id/frame_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="0dp"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="0dp">
@@ -46,32 +49,32 @@
                         android:layout_height="170dp"
                         android:background="@color/Snow"
                         android:orientation="vertical">
-<de.hdodenhof.circleimageview.CircleImageView
-    android:id="@+id/imageProfile"
-    android:layout_width="170dp"
-    android:layout_height="match_parent"
-    app:civ_border_color="@color/Green"
-    app:civ_border_width="2dp"
-    android:layout_centerVertical="true"
-    android:layout_gravity="center_horizontal"/>
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/imageProfile"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_horizontal"
+                            app:civ_border_color="@color/Green"
+                            app:civ_border_width="2dp" />
 
 
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/name"
+                        android:id="@+id/status"
                         android:layout_width="match_parent"
                         android:layout_height="39dp"
                         android:layout_marginStart="0dp"
                         android:layout_weight="1"
                         android:background="@color/Snow"
+                        android:fontFamily="sans-serif-medium"
                         android:paddingBottom="12dp"
                         android:textAlignment="center"
                         android:textColor="@color/GhostWhite"
                         android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:fontFamily="sans-serif-medium"
-                        />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/city"
@@ -91,6 +94,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_margin="5dp"
                         android:orientation="horizontal">
 
                         <Button
@@ -102,13 +106,12 @@
                             android:fontFamily="sans-serif-medium"
 
                             android:layout_marginTop="16dp"
-                            android:background="@drawable/bottun_design"
+                            android:background="@drawable/buttonborder"
                             android:onClick="Add"
                             android:text=" Add Product "
                             android:textColor="@color/GhostWhite"
                             android:textColorLink="@color/GhostWhite"
                             android:visibility="visible"
-                            tools:background="@drawable/bottun_design"
                             tools:textSize="18sp" />
 
                         <Button
@@ -119,12 +122,11 @@
                             android:layout_height="42dp"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
-                            android:background="@drawable/bottun_design"
+                            android:background="@drawable/buttonborder"
                             android:text="LogOut"
                             android:textColor="@color/GhostWhite"
                             android:textColorLink="@color/GhostWhite"
                             android:visibility="visible"
-                            tools:background="@drawable/bottun_design"
                             tools:textSize="18sp" />
                     </LinearLayout>
 
@@ -148,15 +150,15 @@
         android:layout_height="53dp"
         android:layout_marginTop="8dp"
         app:itemBackground="@color/Snow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-
         app:itemIconTint="@color/White"
         app:itemTextColor="@color/White"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/bottonnovigation" >
+        app:menu="@menu/bottonnovigation">
 
     </android.support.design.widget.BottomNavigationView>
 
