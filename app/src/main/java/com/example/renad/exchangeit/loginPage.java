@@ -88,10 +88,16 @@ public class loginPage extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 String   type = (dataSnapshot.child("type").getValue().toString());
-                                if(type.equals("Admin"))
-                                    startActivity(new Intent(getApplicationContext(),Admin.class));
-                                else
-                                    startActivity(new Intent(getApplicationContext(),MainActivity_profilePage.class));
+                                if(type.equals("Admin")) {
+                                    startActivity(new Intent(getApplicationContext(), Admin.class));
+                                    NotificationGenerator.openActivityNotificationActivity(getApplicationContext(),"Welcome admin!");
+
+                                }
+                                else {
+                                    startActivity(new Intent(getApplicationContext(), MainActivity_profilePage.class));
+                                    NotificationGenerator.openActivityNotificationActivity(getApplicationContext(),"Welcome!");
+
+                                }
 
 
                             }
