@@ -214,11 +214,11 @@ Confirm_button.setOnClickListener(new View.OnClickListener() {
 reference8.addListenerForSingleValueEvent(new ValueEventListener() {
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-        String requestString2  = dataSnapshot.child("Receive_requestsNum").getValue().toString();
+        String requestString2  = dataSnapshot.child("recive_request").getValue().toString();
         int requestInt2 = Integer.parseInt(requestString2);
         requestInt2++;
         String requestString3  = Integer.toString(requestInt2);
-        FirebaseDatabase.getInstance().getReference("Users").child(eID).child("Receive_requestsNum").setValue(requestString3);
+        FirebaseDatabase.getInstance().getReference("Users").child(eID).child("recive_request").setValue(requestString3);
         requestProductDetails requestProductDetails2 = new requestProductDetails(intiate_path,recive_path,intiate_name,p_name2,p_des2);
 
         user_Requests user_requests = new user_Requests(requestInt2,userid,eID,pName,p_number,"Waiting",requestProductDetails2) ;
