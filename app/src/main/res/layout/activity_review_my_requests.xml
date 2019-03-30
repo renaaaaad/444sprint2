@@ -28,7 +28,7 @@
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
                 android:tooltipText="Exchange Detail"
-                app:titleTextColor="@color/GhostWhite" />
+                android:titleTextColor="@color/GhostWhite" />
 
                 <TextView
                     android:id="@+id/back11"

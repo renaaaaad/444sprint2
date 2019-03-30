@@ -324,12 +324,12 @@ linearLayout2.setClickable(true);
 
                             });
 
-
-                                    setMargins(fullname, 40, 40, 40, 40);
+                            setMargins(fullname, 40, 40, 40, 40);
                             setMargins(linearLayout2,5,100,5,100);
                             setMargins(linearLayout3,5,5,5,5);
                             setMargins(status,5,5,5,5);
                             setMargins(circleImageView,5,5,5,5);
+
 
                             linearLayout3.addView(fullname);
                             linearLayout3.addView(status);
