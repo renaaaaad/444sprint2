@@ -207,7 +207,7 @@ public void myRequests(final String id ) {
                                             });
                                         }
 
-                                        if (!(dataSnapshot.child("status").getValue().toString().equals("Accepted"))) {
+                                        if ((dataSnapshot.child("status").getValue().toString().equals("Accepted"))) {
                                             linearLayout2.setOnTouchListener(new View.OnTouchListener() {
                                                 @Override
                                                 public boolean onTouch(View v, MotionEvent event) {
@@ -217,7 +217,7 @@ public void myRequests(final String id ) {
                                                         Intent intent;
 
                                                         returnValue = false; //prevent default action on release
-                                                        intent = new Intent(getContext(), requestDetaile.class);
+                                                        intent = new Intent(getContext(), reviewMyRejectRequests.class);
                                                         String int_user = user_requests2.getInitial_user();
                                                         String int_prod = user_requests2.getInitial_product();
                                                         String rec_user = user_requests2.getRecive_user();
@@ -310,10 +310,11 @@ public void myRequests(final String id ) {
                                         intent.putExtra("pro_user", requestProductDetails2.getRecive_name());
                                         intent.putExtra("id", int_user);
 
+                                        startActivity(intent);
 
-                                    } else {
+                                    }  if (status2.equals("Reject")||status2.equals("Reject")) {
                                         returnValue = false;
-                                        intent = new Intent(getContext(), requestDetaile.class);
+                                        intent = new Intent(getContext(), reviewMyRejectRequests.class);
                                         String int_user = user_requests2.getInitial_user();
                                         String int_prod = user_requests2.getInitial_product();
                                         String rec_user = user_requests2.getRecive_user();
@@ -326,9 +327,9 @@ public void myRequests(final String id ) {
                                         intent.putExtra("rec_prod", rec_prod);
                                         intent.putExtra("id", id2);
 
+                                        startActivity(intent);
 
                                     }
-                                    startActivity(intent);
 
                                 }
                                 return returnValue;                                                                 }

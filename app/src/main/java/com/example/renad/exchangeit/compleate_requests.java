@@ -30,7 +30,7 @@ String userid ;
 String eID ;
 TextView textView ,back  ;
     TextView backbtn;
-
+String R_name , R_product , R_des , R_image;
 String p_number ;
 String intiate_path , recive_path , intiate_name , p_name2 , p_des2 ;
     @Override
@@ -133,7 +133,8 @@ final  String user_Exchange_product = intent.getStringExtra("exchane_product") ;
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 String url_photo = dataSnapshot.child("path").getValue().toString();
                                 Glide.with(getApplicationContext()).load(url_photo).into(exchange_product);
-
+R_product  = dataSnapshot.child("name").getValue().toString();
+R_des = dataSnapshot.child("discription").getValue().toString();
                                 recive_path = url_photo;
 
                                 DatabaseReference reference10 = FirebaseDatabase.getInstance().getReference("Users").child(eID);
@@ -142,11 +143,11 @@ final  String user_Exchange_product = intent.getStringExtra("exchane_product") ;
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                         String url_photo2 = dataSnapshot.child("imageurl").getValue().toString();
                                         Glide.with(getApplicationContext()).load(url_photo2).into(userr);
-
+R_image = url_photo2 ;
                                         String nname = dataSnapshot.child("fname").getValue().toString();
                                         String lnname = dataSnapshot.child("lname").getValue().toString();
                                         textView.setText(nname+" "+lnname);
-
+R_name = nname+" "+lnname ;
                                     }
 
                                     @Override
@@ -204,7 +205,7 @@ Confirm_button.setOnClickListener(new View.OnClickListener() {
                 requestInt++;
                 String requestString2  = Integer.toString(requestInt);
                 FirebaseDatabase.getInstance().getReference("Users").child(userid).child("requests").setValue(requestString2);
-                requestProductDetails requestProductDetails = new requestProductDetails(intiate_path,recive_path,intiate_name,p_name2,p_des2);
+                requestProductDetails requestProductDetails = new requestProductDetails(intiate_path,recive_path,R_name,R_product,R_des);
   user_Requests user_requests = new user_Requests(requestInt,userid,eID,pName,p_number,"Waiting",requestProductDetails) ;
                 FirebaseDatabase.getInstance().getReference("Users").child(userid).child("Initiate_requests").child(requestString2).setValue(user_requests);
 // for the second user

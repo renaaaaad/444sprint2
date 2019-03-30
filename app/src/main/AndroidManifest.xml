@@ -53,7 +53,8 @@
             android:name=".compleate_requests"
             android:parentActivityName=".requst_page_displayProducts" />
         <activity android:name=".requestDetaile" />
-        <activity android:name=".reviewMyRequests"></activity>
+        <activity android:name=".reviewMyRequests" />
+        <activity android:name=".reviewMyRejectRequests"></activity>
     </application>
 
 </manifest>

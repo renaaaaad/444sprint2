@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="1dp"
-    android:orientation="vertical"
-    tools:context=".requestDetaile">
-
+    tools:context=".reviewMyRejectRequests">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -19,16 +16,16 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-            <ImageView
-            android:id="@+id/toolbar2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:background="?attr/colorPrimary"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                android:tooltipText="Exchange Detail"
-                android:titleTextColor="@color/GhostWhite" />
+                <ImageView
+                    android:id="@+id/toolbar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0dp"
+                    android:background="?attr/colorPrimary"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="?attr/actionBarTheme"
+                    android:tooltipText="Exchange Detail"
+                    android:titleTextColor="@color/GhostWhite" />
 
                 <TextView
                     android:id="@+id/back11"
@@ -176,16 +173,7 @@
 
 
 
-                <Button
-                    android:id="@+id/cancel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/buttonborder"
-                    android:text="Cancel Request"
-                    android:textColor="@color/GhostWhite"
-                    android:textSize="16sp" />
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
