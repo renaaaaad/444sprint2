@@ -210,7 +210,7 @@ final TextView phonenumber = new TextView(getContext());
 
 
                                                             returnValue = false; //prevent default action on release
-                                                            intent = new Intent(getContext(), reviewMyRequests.class);
+                                                            intent = new Intent(getContext(), reviewMyRejectRequests.class);
                                                             String int_user = user_requests2.getInitial_user();
                                                             String int_prod = user_requests2.getInitial_product();
                                                             String rec_user = user_requests2.getRecive_user();
@@ -225,8 +225,6 @@ final TextView phonenumber = new TextView(getContext());
                                                             intent.putExtra("pro_recive", requestProductDetails2.getRecive_path());
                                                             intent.putExtra("pro_user", requestProductDetails2.getRecive_name());
                                                             intent.putExtra("id", int_user);
-
-
                                                             intent.putExtra("int_user", int_user);
                                                             intent.putExtra("int_prod", int_prod);
                                                             intent.putExtra("rec_user", rec_user);
