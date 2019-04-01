@@ -76,7 +76,9 @@
                     android:stretchMode="columnWidth"
                     android:verticalSpacing="1dp" />
             </LinearLayout>
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="match_parent"
@@ -85,7 +87,10 @@
                 android:text="exchanger information :"
                 android:textAlignment="textStart"
                 android:textColor="@color/Snow"
-                android:textSize="16sp" />
+                android:textSize="17dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:id="@+id/productClickSearch"
@@ -123,7 +128,9 @@
                     android:textColor="#212121"
                     android:textSize="15dp" />
             </LinearLayout>
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="match_parent"
@@ -132,14 +139,18 @@
                 android:text="Product Information :"
                 android:textAlignment="textStart"
                 android:textColor="@color/Snow"
-                android:textSize="16sp" />
+                android:textSize="17dp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="Name :"
+                android:textSize="17dp"
                 android:textColor="@color/Snow"/>
 
             <TextView
@@ -149,13 +160,16 @@
                 android:layout_margin="5dp"
                 android:textColor="@color/Snow"
                 android:background="@drawable/border2"/>
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="Description :"
+                android:textSize="17dp"
                 android:textColor="@color/Snow" />
 
             <TextView

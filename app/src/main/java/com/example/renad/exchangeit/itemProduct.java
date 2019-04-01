@@ -40,7 +40,6 @@ public class itemProduct extends AppCompatActivity {
     private EditText item_name;
     ImageView imageView_item ;
 private String id ;
-private Button backButton;
 private Button CanceleButton;
 private Button changebtn;
 private Button delebtn;
@@ -64,7 +63,6 @@ private Button delebtn;
         imageView_item = findViewById(R.id.image_container);
         item_description = (EditText) findViewById(R.id.description);
         item_name = (EditText) findViewById(R.id.itemname);
-        backButton = (Button) findViewById(R.id.backbutton);
         CanceleButton = (Button) findViewById(R.id.cancelbut);
         changebtn = (Button) findViewById(R.id.changebut);
         delebtn = (Button) findViewById(R.id.deletebut);
@@ -98,13 +96,7 @@ private Button delebtn;
 
 ///// buttons intents
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(itemProduct.this, MainActivity_profilePage.class);
-                startActivity(i);
-            }
-        });
+
 
         CanceleButton.setOnClickListener(new View.OnClickListener() {
             @Override

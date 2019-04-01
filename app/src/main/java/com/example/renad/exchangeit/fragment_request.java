@@ -357,12 +357,31 @@ public void myRequests(final String id ) {
 
                         });
 
+                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 
-                        setMargins(fullname, 40, 40, 40, 40);
-                        setMargins(linearLayout2,5,100,5,100);
-                        setMargins(linearLayout3,5,5,5,5);
-                        setMargins(status,5,5,5,5);
-                        setMargins(circleImageView,5,5,5,5);
+                                LinearLayout.LayoutParams.WRAP_CONTENT,
+                                LinearLayout.LayoutParams.WRAP_CONTENT
+                        );
+
+                        LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(
+
+                                LinearLayout.LayoutParams.WRAP_CONTENT,
+                                LinearLayout.LayoutParams.WRAP_CONTENT
+                        );
+
+                        params.setMargins(30, 10, 30, 10);
+                        linearLayout3.setLayoutParams(params);
+                        linearLayout2.setLayoutParams(params);
+
+                        params2.setMargins(500, 10, 30, 10);
+
+                        arrow.setLayoutParams(params2);
+
+//                        setMargins(fullname, 40, 40, 40, 40);
+//                        setMargins(linearLayout2,5,100,5,100);
+//                        setMargins(linearLayout3,5,5,5,5);
+//                        setMargins(status,5,5,5,5);
+//                        setMargins(circleImageView,5,5,5,5);
 
                         linearLayout3.addView(fullname);
                         linearLayout3.addView(status);

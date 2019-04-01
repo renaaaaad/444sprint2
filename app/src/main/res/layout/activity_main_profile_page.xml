@@ -84,24 +84,23 @@
 
                         <ImageView
                             android:id="@+id/imageView4"
-                            android:layout_width="60dp"
+                            android:layout_width="30dp"
                             android:layout_height="match_parent"
                             android:layout_margin="0dp"
                             android:layout_weight="1"
                             android:background="@color/Snow"
-                            android:paddingBottom="5dp"
                             android:paddingLeft="130dp"
-                            app:srcCompat="@drawable/location" />
+                            android:paddingBottom="5dp"
+                            app:srcCompat="@drawable/locationimage" />
 
                         <TextView
                             android:id="@+id/city"
                             android:layout_width="64dp"
-                            android:layout_height="match_parent"
+                            android:layout_height="36dp"
                             android:layout_marginStart="0dp"
                             android:layout_weight="1"
                             android:background="@color/Snow"
-                            android:paddingBottom="8dp"
-                            android:paddingTop="14dp"
+                            android:paddingTop="2dp"
                             android:text="gfgf"
                             android:textColor="@color/GhostWhite"
                             android:textSize="22sp">
@@ -122,7 +121,8 @@
                             android:layout_width="176dp"
                             android:layout_height="42dp"
 
-                            android:layout_margin="5dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="5dp"
                             android:background="@drawable/buttonborder"
                             android:fontFamily="sans-serif-medium"
                             android:onClick="Add"
@@ -137,7 +137,8 @@
                             android:layout_width="176dp"
 
                             android:layout_height="42dp"
-                            android:layout_margin="5dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
                             android:background="@drawable/buttonborder"
                             android:fontFamily="sans-serif-medium"
                             android:text="LogOut"

@@ -207,7 +207,6 @@ imageView_user.setOnClickListener(new View.OnClickListener() {
 
                   String  path = uri.toString();
                     url_photo = path;
-                    FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("imageurl").setValue(path);
                     Glide.with(getApplicationContext()).load(url_photo).into(imageView_user);
 
 
