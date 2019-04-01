@@ -168,7 +168,7 @@ public void myRequests(final String id ) {
                                 reference2.child("requestsReceive").child(id2).addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
-                                        //-------------
+                                        status2 = dataSnapshot.child("status").getValue().toString();
                                         status.setText(dataSnapshot.child("status").getValue().toString());
                                         if (dataSnapshot.child("status").getValue().toString().equals("Accepted")) {
                                             linearLayout2.setOnTouchListener(new View.OnTouchListener() {
@@ -310,11 +310,10 @@ public void myRequests(final String id ) {
                                         intent.putExtra("pro_user", requestProductDetails2.getRecive_name());
                                         intent.putExtra("id", int_user);
 
-                                        startActivity(intent);
 
-                                    }  if (status2.equals("Reject")||status2.equals("Reject")) {
+                                    }if (status2.equals("Waiting")) {
                                         returnValue = false;
-                                        intent = new Intent(getContext(), reviewMyRejectRequests.class);
+                                        intent = new Intent(getContext(), requestDetaile.class);
                                         String int_user = user_requests2.getInitial_user();
                                         String int_prod = user_requests2.getInitial_product();
                                         String rec_user = user_requests2.getRecive_user();
@@ -327,9 +326,31 @@ public void myRequests(final String id ) {
                                         intent.putExtra("rec_prod", rec_prod);
                                         intent.putExtra("id", id2);
 
-                                        startActivity(intent);
 
                                     }
+                                    else {
+                                        intent = new Intent(getContext(), reviewMyRejectRequests.class);
+                                        String int_user = user_requests2.getInitial_user();
+                                        String int_prod = user_requests2.getInitial_product();
+                                        String rec_user = user_requests2.getRecive_user();
+                                        String rec_prod = user_requests2.getRecive_product();
+                                        int id = user_requests2.getId();
+                                        String id2 = Integer.toString(id);
+                                        returnValue = false;
+                                        requestProductDetails requestProductDetails2 = user_requests2.getRequestProductDetails();
+                                        intent.putExtra("pro_intiate", requestProductDetails2.getIntiate_path());
+                                        intent.putExtra("pro_des", requestProductDetails2.getP_des());
+                                        intent.putExtra("pro_name", requestProductDetails2.getP_name());
+                                        intent.putExtra("pro_recive", requestProductDetails2.getRecive_path());
+                                        intent.putExtra("pro_user", requestProductDetails2.getRecive_name());
+                                        intent.putExtra("id", int_user);
+                                        intent.putExtra("int_user", int_user);
+                                        intent.putExtra("int_prod", int_prod);
+                                        intent.putExtra("rec_user", rec_user);
+                                        intent.putExtra("rec_prod", rec_prod);
+
+                                    }
+                                    startActivity(intent);
 
                                 }
                                 return returnValue;                                                                 }

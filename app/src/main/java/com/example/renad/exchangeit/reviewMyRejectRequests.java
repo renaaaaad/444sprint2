@@ -40,10 +40,6 @@ public class reviewMyRejectRequests extends AppCompatActivity {
 
         backbtn=(TextView) findViewById(R.id.back11);
 
-
-
-
-
         Intent intent =getIntent();
 
         id3 = intent.getStringExtra("id");
