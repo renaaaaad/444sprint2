@@ -23,7 +23,7 @@ private EditText email2 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot_password);
+        setContentView(R.layout.activity_forget_passeord);
         firebaseAuth = FirebaseAuth.getInstance();
         email2 = (EditText)findViewById(R.id.email) ;
 
@@ -32,7 +32,27 @@ private EditText email2 ;
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplicationContext(), MainActivity_profilePage.class));
+                String string =  email2.getText().toString();
+                if(string!=null) {
+                    firebaseAuth.sendPasswordResetEmail(email2.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                startActivity(new Intent(getApplicationContext(),loginPage.class));
+                            }
+                            else {
+                                email2.setError("Error With This Password  ");
+                                email2.requestFocus();
+                            }
+                        }
+                    });
+                }//if
+                else {
+                    email2.setError("Please enter The Email Address   ");
+                    email2.requestFocus();
+                }
+
+                //  startActivity(new Intent(getApplicationContext(), MainActivity_profilePage.class));
 
             }
         });
@@ -40,25 +60,6 @@ private EditText email2 ;
     }//on create
 
     public void reset(View view){
-        String string =  email2.getText().toString();
-        if(string!=null) {
-            firebaseAuth.sendPasswordResetEmail(email2.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if(task.isSuccessful()){
-                        startActivity(new Intent(getApplicationContext(),loginPage.class));
-                    }
-                    else {
-                        email2.setError("Error With This Password  ");
-                        email2.requestFocus();
-                    }
-                }
-            });
-        }//if
-        else {
-            email2.setError("Please enter The Email Address   ");
-            email2.requestFocus();
-        }
 
     }
 }

@@ -64,26 +64,24 @@ public class reviewMyRequests extends AppCompatActivity {
         //-----------
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
-        reference.child(id3).addListenerForSingleValueEvent(new ValueEventListener() {
+        reference.child(id).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+               if( dataSnapshot.child("imageurl").getValue()==null) return;
+               Glide.with(getApplicationContext()).load(dataSnapshot.child("imageurl").getValue().toString()).into(profile);
 
+              }
 
+                 @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                Glide.with(getApplicationContext()).load(dataSnapshot.child("imageurl").getValue().toString()).into(profile);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+                     }
+                         });
 
 
 
 
-        cancelbtn.setOnClickListener(new View.OnClickListener() {
+                                cancelbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
